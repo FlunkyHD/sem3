@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lektion1
 {
-    class gradRadian
+    class GradRadian
     {
         public double Grad (double radian)
         {
