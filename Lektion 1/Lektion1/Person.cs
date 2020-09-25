@@ -18,7 +18,7 @@ namespace Lektion1
 
         public int Id
         {
-            get { return Id; }
+            get { return _id; }
         }
 
         public Person(int alder, string fornavn, string efternavn) : this(alder, fornavn, efternavn, null, null)

@@ -27,6 +27,18 @@ namespace Lektion2
             //w.InsertCoins(25);
             //w.PrintsNumberOfCoins();
 
+            //Opgave 4
+            //BankAccount m = new BankAccount(10000, 1.07, 1.02);
+            //Console.WriteLine(m.Balance);
+            //m.DepositCash(25000);
+            //Console.WriteLine(m.Balance);
+            //m.ChargeInterest();
+            //Console.WriteLine(m.Balance);
+
+            //Opgave 5
+
+
+
 
         }
     }
