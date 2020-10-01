@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lektion_3
 {
-    public class Bus : Vehicle
+    public class Bus : Vehicle, ITaxable
     {
 
         protected int numberOfSeats;
@@ -21,6 +21,11 @@ namespace Lektion_3
             {
                 return numberOfSeats;
             }
+        }
+
+        public decimal TaxValue()
+        {
+            return value / 25;
         }
 
 

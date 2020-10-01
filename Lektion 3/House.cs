@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lektion_3
 {
-    public class House : FixedProperty
+    public class House : FixedProperty, ITaxable
     {
 
         protected double area;
@@ -24,6 +24,10 @@ namespace Lektion_3
             }
         }
 
+        public decimal TaxValue()
+        {
+            return estimatedValue / 20;
+        }
 
 
     }

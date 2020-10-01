@@ -1,0 +1,13 @@
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\bin\Debug\netcoreapp3.1\EightQueenProblem.exe
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\bin\Debug\netcoreapp3.1\EightQueenProblem.deps.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\bin\Debug\netcoreapp3.1\EightQueenProblem.runtimeconfig.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\bin\Debug\netcoreapp3.1\EightQueenProblem.runtimeconfig.dev.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\bin\Debug\netcoreapp3.1\EightQueenProblem.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\bin\Debug\netcoreapp3.1\EightQueenProblem.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\obj\Debug\netcoreapp3.1\EightQueenProblem.csprojAssemblyReference.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\obj\Debug\netcoreapp3.1\EightQueenProblem.AssemblyInfoInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\obj\Debug\netcoreapp3.1\EightQueenProblem.AssemblyInfo.cs
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\obj\Debug\netcoreapp3.1\EightQueenProblem.csproj.CoreCompileInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\obj\Debug\netcoreapp3.1\EightQueenProblem.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\obj\Debug\netcoreapp3.1\EightQueenProblem.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\EightQueenProblem\obj\Debug\netcoreapp3.1\EightQueenProblem.genruntimeconfig.cache

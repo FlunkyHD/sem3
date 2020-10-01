@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lektion_3
 {
-    public class Vehicle : ITaxable
+    public class Vehicle
     {
 
         protected int registrationNumber;
@@ -27,10 +27,6 @@ namespace Lektion_3
             }
         }
 
-        public decimal TaxValue()
-        {
-            return value / 25;
-        }
 
     }
 }

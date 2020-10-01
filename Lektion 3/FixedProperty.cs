@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lektion_3
 {
-    public class FixedProperty : ITaxable
+    public class FixedProperty
     {
 
         protected string location;
@@ -29,11 +29,6 @@ namespace Lektion_3
             {
                 return location;
             }
-        }
-
-        public decimal TaxValue()
-        {
-            return estimatedValue / 20;
         }
     }
 
