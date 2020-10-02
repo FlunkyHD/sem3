@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 3 Interfaces\\Lektion 3.csproj": {}
+    "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\MiniProjekt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 3 Interfaces\\Lektion 3.csproj": {
+    "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\MiniProjekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 3 Interfaces\\Lektion 3.csproj",
-        "projectName": "Lektion 3",
-        "projectPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 3 Interfaces\\Lektion 3.csproj",
+        "projectUniqueName": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\MiniProjekt.csproj",
+        "projectName": "MiniProjekt",
+        "projectPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\MiniProjekt.csproj",
         "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 3 Interfaces\\obj\\",
+        "outputPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
