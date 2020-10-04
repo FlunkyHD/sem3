@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace MiniProjekt
 {
@@ -16,6 +17,8 @@ namespace MiniProjekt
             );
             menu.Add(underMenu);
             menu.Add(new InfiniteMenu("Uendelig menu"));
+            menu.Add(new FileSystemMenu("Browse desktop", new DirectoryInfo(@"C:\Users\Win10\Desktop\")));
+
             menu.Start();
 
         }

@@ -21,11 +21,13 @@ namespace MiniProjekt
             Title = title;
         }
 
-        public Menu(string title, MenuItem x, MenuItem y) //UNSCUFF PÅ ET TIDSPUNKT
+        public Menu(string title, params MenuItem[] x)
         {
             Title = title;
-            MenuPunkter.Add(x);
-            MenuPunkter.Add(y);
+            foreach (MenuItem item in x)
+            {
+                MenuPunkter.Add(item);
+            }
 
         }
 
