@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\MiniProjekt.csproj": {}
+    "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Lektion 5 Miniprojekt\\MiniProjekt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\MiniProjekt.csproj": {
+    "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Lektion 5 Miniprojekt\\MiniProjekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\MiniProjekt.csproj",
+        "projectUniqueName": "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Lektion 5 Miniprojekt\\MiniProjekt.csproj",
         "projectName": "MiniProjekt",
-        "projectPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\MiniProjekt.csproj",
-        "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 5 MiniProjekt\\obj\\",
+        "projectPath": "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Lektion 5 Miniprojekt\\MiniProjekt.csproj",
+        "packagesPath": "C:\\Users\\Morten Jørgensen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Lektion 5 Miniprojekt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Morten Jørgensen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
