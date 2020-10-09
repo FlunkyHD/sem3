@@ -1,0 +1,13 @@
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\bin\Debug\netcoreapp3.1\Lektion 4.exe
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\bin\Debug\netcoreapp3.1\Lektion 4.deps.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\bin\Debug\netcoreapp3.1\Lektion 4.runtimeconfig.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\bin\Debug\netcoreapp3.1\Lektion 4.runtimeconfig.dev.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\bin\Debug\netcoreapp3.1\Lektion 4.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\bin\Debug\netcoreapp3.1\Lektion 4.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\obj\Debug\netcoreapp3.1\Lektion 4.csprojAssemblyReference.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\obj\Debug\netcoreapp3.1\Lektion 4.AssemblyInfoInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\obj\Debug\netcoreapp3.1\Lektion 4.AssemblyInfo.cs
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\obj\Debug\netcoreapp3.1\Lektion 4.csproj.CoreCompileInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\obj\Debug\netcoreapp3.1\Lektion 4.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\obj\Debug\netcoreapp3.1\Lektion 4.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 4 Exceptions\Lektion 4\obj\Debug\netcoreapp3.1\Lektion 4.genruntimeconfig.cache
