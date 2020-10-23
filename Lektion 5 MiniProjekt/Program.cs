@@ -17,7 +17,7 @@ namespace MiniProjekt
             );
             menu.Add(underMenu);
             menu.Add(new InfiniteMenu("Uendelig menu"));
-            menu.Add(new FileSystemMenu("Browse desktop", new DirectoryInfo(@"C:\Users\Win10\Desktop\")));
+            menu.Add(new FileSystemMenu("Browse desktop", new DirectoryInfo(@"C:\Users\Morten Jørgensen\Desktop\"))); //Hard codet :(
 
             menu.Start();
 

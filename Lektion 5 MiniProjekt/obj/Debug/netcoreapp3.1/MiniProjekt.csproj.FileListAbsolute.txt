@@ -11,3 +11,16 @@ C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 5 MiniProjekt\obj\Debug\netc
 C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 5 MiniProjekt\obj\Debug\netcoreapp3.1\MiniProjekt.dll
 C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 5 MiniProjekt\obj\Debug\netcoreapp3.1\MiniProjekt.pdb
 C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 5 MiniProjekt\obj\Debug\netcoreapp3.1\MiniProjekt.genruntimeconfig.cache
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\bin\Debug\netcoreapp3.1\MiniProjekt.exe
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\bin\Debug\netcoreapp3.1\MiniProjekt.deps.json
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\bin\Debug\netcoreapp3.1\MiniProjekt.runtimeconfig.json
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\bin\Debug\netcoreapp3.1\MiniProjekt.runtimeconfig.dev.json
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\bin\Debug\netcoreapp3.1\MiniProjekt.dll
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\bin\Debug\netcoreapp3.1\MiniProjekt.pdb
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\obj\Debug\netcoreapp3.1\MiniProjekt.csprojAssemblyReference.cache
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\obj\Debug\netcoreapp3.1\MiniProjekt.AssemblyInfoInputs.cache
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\obj\Debug\netcoreapp3.1\MiniProjekt.AssemblyInfo.cs
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\obj\Debug\netcoreapp3.1\MiniProjekt.csproj.CoreCompileInputs.cache
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\obj\Debug\netcoreapp3.1\MiniProjekt.dll
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\obj\Debug\netcoreapp3.1\MiniProjekt.pdb
+C:\Users\Morten Jørgensen\Desktop\Uni\3. Semester\sem3\Lektion 5 Miniprojekt\obj\Debug\netcoreapp3.1\MiniProjekt.genruntimeconfig.cache

@@ -1,0 +1,13 @@
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\bin\Debug\netcoreapp3.1\Lektion 6 Generics.exe
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\bin\Debug\netcoreapp3.1\Lektion 6 Generics.deps.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\bin\Debug\netcoreapp3.1\Lektion 6 Generics.runtimeconfig.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\bin\Debug\netcoreapp3.1\Lektion 6 Generics.runtimeconfig.dev.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\bin\Debug\netcoreapp3.1\Lektion 6 Generics.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\bin\Debug\netcoreapp3.1\Lektion 6 Generics.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\obj\Debug\netcoreapp3.1\Lektion 6 Generics.csprojAssemblyReference.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\obj\Debug\netcoreapp3.1\Lektion 6 Generics.AssemblyInfoInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\obj\Debug\netcoreapp3.1\Lektion 6 Generics.AssemblyInfo.cs
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\obj\Debug\netcoreapp3.1\Lektion 6 Generics.csproj.CoreCompileInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\obj\Debug\netcoreapp3.1\Lektion 6 Generics.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\obj\Debug\netcoreapp3.1\Lektion 6 Generics.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 6 Generics\obj\Debug\netcoreapp3.1\Lektion 6 Generics.genruntimeconfig.cache

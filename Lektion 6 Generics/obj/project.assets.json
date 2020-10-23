@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Morten Jørgensen\\.nuget\\packages\\": {},
-    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Win10\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Lektion 5 Miniprojekt\\MiniProjekt.csproj",
-      "projectName": "MiniProjekt",
-      "projectPath": "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Lektion 5 Miniprojekt\\MiniProjekt.csproj",
-      "packagesPath": "C:\\Users\\Morten Jørgensen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Lektion 5 Miniprojekt\\obj\\",
+      "projectUniqueName": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 6 Generics\\Lektion 6 Generics.csproj",
+      "projectName": "Lektion 6 Generics",
+      "projectPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 6 Generics\\Lektion 6 Generics.csproj",
+      "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Lektion 6 Generics\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Morten Jørgensen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -62,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
