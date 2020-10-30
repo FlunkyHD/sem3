@@ -1,0 +1,13 @@
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\bin\Debug\netcoreapp3.1\Lektion 7 Delegates.exe
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\bin\Debug\netcoreapp3.1\Lektion 7 Delegates.deps.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\bin\Debug\netcoreapp3.1\Lektion 7 Delegates.runtimeconfig.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\bin\Debug\netcoreapp3.1\Lektion 7 Delegates.runtimeconfig.dev.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\bin\Debug\netcoreapp3.1\Lektion 7 Delegates.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\bin\Debug\netcoreapp3.1\Lektion 7 Delegates.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\obj\Debug\netcoreapp3.1\Lektion 7 Delegates.csprojAssemblyReference.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\obj\Debug\netcoreapp3.1\Lektion 7 Delegates.AssemblyInfoInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\obj\Debug\netcoreapp3.1\Lektion 7 Delegates.AssemblyInfo.cs
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\obj\Debug\netcoreapp3.1\Lektion 7 Delegates.csproj.CoreCompileInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\obj\Debug\netcoreapp3.1\Lektion 7 Delegates.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\obj\Debug\netcoreapp3.1\Lektion 7 Delegates.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 7 Delegates\obj\Debug\netcoreapp3.1\Lektion 7 Delegates.genruntimeconfig.cache
