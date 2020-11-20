@@ -1,0 +1,13 @@
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\bin\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.exe
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\bin\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.deps.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\bin\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.runtimeconfig.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\bin\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.runtimeconfig.dev.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\bin\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\bin\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\obj\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.csprojAssemblyReference.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\obj\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.AssemblyInfoInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\obj\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.AssemblyInfo.cs
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\obj\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.csproj.CoreCompileInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\obj\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\obj\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Lektion 9 Collections and Linq\obj\Debug\netcoreapp3.1\Lektion 9 Collections and Linq.genruntimeconfig.cache
