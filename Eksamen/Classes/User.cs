@@ -1,36 +1,104 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Eksamen
 {
     public class User : IComparable<User>
     {
         public int ID { get; set; }
-        private string firstName { get; set; }
-        private string lastName { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        private decimal _balance { get; set; }
+        private string _firstName;
+
+        public string FirstName
+        {
+            get { return _lastName; }
+            set
+            {
+                if (value != null)
+                {
+                    _lastName = value;
+                }
+            }
+        }
+
+        private string _lastName;
+
+        public string LastName
+        {
+            get { return _lastName; }
+            set
+            {
+                if (value != null)
+                {
+                    _lastName = value;
+                }
+            }
+        }
+
+        private string _username;
+        //TODO LÆR REGEX
+        public string Username
+        {
+            get { return _username; }
+            set {}
+        }
+
+        private string email;
+        public string Email
+        {
+            get { return email; }
+            set
+            {
+                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+                Match match = regex.Match(value);
+                if (match.Success)
+                {
+                    email = value;
+                }
+                else
+                {
+                    throw new InvalidDataException("Not a valid email");
+                }
+
+            }
+        }
+
+        private decimal _balance;
+
+        public decimal Balance
+        {
+            get { return _balance; }
+            set
+            {
+                _balance += value;
+                if (_balance <= 50)
+                {
+                    //TODO DELIGATE MED NOTIFICATION
+                }
+            }
+        }
 
 
         private User()
         {
             
         }
-        public User(int id, string firstname, string lastname, string username, string email, decimal blance)
+        public User(int id, string firstname, string lastname, string username, string email, decimal balance)
         {
             ID = id;
-            firstName = firstname;
-            lastName = lastname;
+            FirstName = firstname;
+            LastName = lastname;
             Username = username;
             Email = email;
-            _balance = _balance;
+            Balance = balance;
         }
 
         public override string ToString()
         {
-            return $"{firstName} {lastName}  ({Email})";
+            return $"{FirstName} {LastName}  ({Email})";
         }
 
         public int CompareTo(User other)
