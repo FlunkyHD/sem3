@@ -12,12 +12,14 @@ namespace Eksamen
             User = user;
             Amount = amount;
             TransactionTime = DateTime.Now;
-
         }
 
         private static int idCounter = 0;
         private int _id = ++idCounter;
-        public int ID { get;}
+        public int ID
+        {
+            get { return _id; }
+        }
 
         private User _user;
 

@@ -14,12 +14,12 @@ namespace Eksamen
 
         public string FirstName
         {
-            get { return _lastName; }
+            get { return _firstName; }
             set
             {
                 if (value != null)
                 {
-                    _lastName = value;
+                    _firstName = value;
                 }
             }
         }
@@ -43,7 +43,7 @@ namespace Eksamen
         public string Username
         {
             get { return _username; }
-            set {}
+            set { _username = value;  } //TODO FIX
         }
 
         private string email;
@@ -52,17 +52,7 @@ namespace Eksamen
             get { return email; }
             set
             {
-                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-                Match match = regex.Match(value);
-                if (match.Success)
-                {
-                    email = value;
-                }
-                else
-                {
-                    throw new InvalidDataException("Not a valid email");
-                }
-
+                email = value; //TODO FIX KOKS MED TJEK AF EMAIL, NOGET MED AT DELE DEN OP I 2
             }
         }
 
@@ -70,10 +60,17 @@ namespace Eksamen
 
         public decimal Balance
         {
-            get { return _balance; }
+            get
+            {
+                if (_balance <= 50)
+                {
+                    //TODO DELGIATE MED NOTIFICATION
+                }
+                return _balance;
+            }
             set
             {
-                _balance += value;
+                _balance = value;
                 if (_balance <= 50)
                 {
                     //TODO DELIGATE MED NOTIFICATION
@@ -81,10 +78,19 @@ namespace Eksamen
             }
         }
 
-
         private User()
         {
             
+        }
+        public User(string line)
+        {
+            string[] split = line.Split(',');
+            ID = Convert.ToInt32(split[0]);
+            FirstName = Convert.ToString(split[1]);
+            LastName = Convert.ToString(split[2]);
+            Username = Convert.ToString(split[3]);
+            Balance = Convert.ToDecimal(split[4]);
+            Email = Convert.ToString(split[5]);
         }
         public User(int id, string firstname, string lastname, string username, string email, decimal balance)
         {

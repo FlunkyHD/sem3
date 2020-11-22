@@ -1,0 +1,13 @@
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\obj\Debug\netcoreapp3.1\Eksamen.csprojAssemblyReference.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\obj\Debug\netcoreapp3.1\Eksamen.AssemblyInfoInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\obj\Debug\netcoreapp3.1\Eksamen.AssemblyInfo.cs
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\obj\Debug\netcoreapp3.1\Eksamen.csproj.CoreCompileInputs.cache
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\bin\Debug\netcoreapp3.1\Eksamen.exe
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\bin\Debug\netcoreapp3.1\Eksamen.deps.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\bin\Debug\netcoreapp3.1\Eksamen.runtimeconfig.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\bin\Debug\netcoreapp3.1\Eksamen.runtimeconfig.dev.json
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\bin\Debug\netcoreapp3.1\Eksamen.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\bin\Debug\netcoreapp3.1\Eksamen.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\obj\Debug\netcoreapp3.1\Eksamen.dll
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\obj\Debug\netcoreapp3.1\Eksamen.pdb
+C:\Users\Win10\Desktop\3. Semester\OOP\sem3\Eksamen\obj\Debug\netcoreapp3.1\Eksamen.genruntimeconfig.cache

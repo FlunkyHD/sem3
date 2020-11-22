@@ -2,11 +2,29 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Eksamen
 {
     public class Product
     {
+        public Product(string line)
+        {
+            string[] split = line.Split(';');
+            ID = Convert.ToInt32(split[0]);
+            Name = Regex.Replace(Convert.ToString(split[1]), "<.*?>", String.Empty).Replace("\"", "");
+            Price = Convert.ToDecimal(split[2]);
+            if (Convert.ToInt32(split[3]) == 1)
+            {
+                Active = true;
+            }
+            else
+            {
+                Active = false;
+            }
+
+            CanBeBoughtOnCredit = false; //I guess
+        }
         public Product(int id, string name, decimal price, bool active, bool canBeBoughOnCredit)
         {
             ID = id;
@@ -54,13 +72,28 @@ namespace Eksamen
         }
 
         private decimal _price;
-        public decimal Price { get; set; }
+
+        public decimal Price
+        {
+            get { return _price; }
+            set { _price = value; }
+        }
 
         private bool _active;
-        public bool Active { get; set; }
+
+        public bool Active
+        {
+            get { return _active; }
+            set { _active = value;  }
+        }
 
         private bool _canBeOutOfCredit;
-        public bool CanBeBoughtOnCredit { get; set; }
+
+        public bool CanBeBoughtOnCredit
+        {
+            get { return _canBeOutOfCredit; }
+            set { _canBeOutOfCredit = value; }
+        }
 
         public override string ToString()
         {

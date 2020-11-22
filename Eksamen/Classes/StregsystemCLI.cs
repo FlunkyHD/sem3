@@ -1,66 +1,139 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq.Expressions;
 using System.Text;
+using System.Xml.Schema;
 
 namespace Eksamen
 {
     public class StregsystemCLI : IStregsystemUI
     {
+        private IStregsystem IS;
+        private bool _running = true;
+        public StregsystemCLI(IStregsystem s)
+        {
+            IS = s;
+            IS.UserBalanceWarning += UserBalanceWarning;
+        }
+
         public void DisplayUserNotFound(string username)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"User with: ({username}) as a username could not be found");
         }
 
         public void DisplayProductNotFound(string product)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Product with: ({product}) could not be found");
         }
 
         public void DisplayUserInfo(User user)
         {
-            throw new NotImplementedException();
+            List<Transaction> transactions = (List<Transaction>)IS.GetTransactions(user, 10);
+            Console.WriteLine($"{user}: Balance: {user.Balance}");
+            Console.WriteLine($"Last {transactions.Count} transations:");
+            foreach (Transaction itemTransaction in transactions)
+            {
+                Console.WriteLine(itemTransaction);
+            }
+
+            Console.WriteLine("");
         }
 
         public void DisplayTooManyArgumentsError(string command)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Too many arguments were entered: ({command})");
         }
 
         public void DisplayAdminCommandNotFoundMessage(string adminCommand)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"This: ({adminCommand}) was not found");
         }
 
         public void DisplayUserBuysProduct(BuyTransaction transaction)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(transaction);
         }
 
         public void DisplayUserBuysProduct(int count, BuyTransaction transaction)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{count}x {transaction}");
         }
 
         public void Close()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Closeing program, bye!");
+            _running = false;
         }
 
         public void DisplayInsufficientCash(User user, Product product)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"User: {user.Username} (balance: {user.Balance}) did not have sufficient funds to purchase: {product.Name}");
         }
 
         public void DisplayGeneralError(string errorString)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Error: {errorString}");
+        }
+
+        public void DisplayUserTransactions(List<Transaction> transactions)
+        {
+            foreach (Transaction itemTransaction in transactions)
+            {
+                Console.WriteLine(itemTransaction);
+            }
+        }
+
+        private void UserBalanceWarning(User user, decimal balance)
+        {
+            Console.WriteLine($"WARNING! User: {user.Username}'s balance is only: {balance}");
         }
 
         public void Start()
         {
-            throw new NotImplementedException();
+            _running = true;
+            do
+            {
+                WriteMenu();
+
+                try
+                {
+                    HandleInput();
+                }
+                catch (NonExistingUserException e)
+                {
+                    DisplayGeneralError(e.Message);
+                }
+                catch (NonExistingProductException e)
+                {
+                    DisplayGeneralError(e.Message);
+                }
+                catch (InsufficientCreditsException e)
+                {
+                    DisplayGeneralError(e.Message);
+                }
+                
+            } while (_running);
         }
 
         public event StregsystemEvent CommandEntered;
+
+        public void HandleInput()
+        {
+            string command = Console.ReadLine();
+            CommandEntered?.Invoke(command);
+        }
+
+        public void WriteMenu()
+        {
+            foreach (Product isActiveProduct in IS.ActiveProducts)
+            {
+                Console.WriteLine(isActiveProduct);
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Enter command:");
+
+        }
+
     }
 }
