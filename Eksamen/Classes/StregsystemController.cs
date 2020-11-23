@@ -29,7 +29,7 @@ namespace Eksamen
             _adminCommands.Add(":creditoff", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = false);
             _adminCommands.Add(":addcredits", (string[] command) => S.AddCreditsToAccount(s.GetUserByUsername(command[1]), Convert.ToInt32(command[2])));
         }
-
+        //TODO MÅSKE HÅNTERE EXCEPTIONS HERINDE LIGESOM ALLE ANDRE PÅ DISCORD
         public void ParseCommand(string command)
         {
             User user;
