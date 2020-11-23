@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Eksamen;
 
 namespace Eksamen
 {
@@ -38,7 +39,7 @@ namespace Eksamen
 
             if (!ProductBought.Active)
             {
-                throw new NonExistingProductException(); //TODO MÅSKE EN NY EXCEPTION DER PASSER TIL DETTE
+                throw new NotActiveProductException($"This product is not available!");
             }
 
             User.Balance -= AmountAtPurchase;

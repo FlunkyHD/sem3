@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Text;
 using System.Xml.Schema;
+using Eksamen;
 
 namespace Eksamen
 {
@@ -47,7 +48,7 @@ namespace Eksamen
 
         public void DisplayAdminCommandNotFoundMessage(string adminCommand)
         {
-            Console.WriteLine($"This: ({adminCommand}) was not found");
+            Console.WriteLine($"This admin command: ({adminCommand}) was not found");
         }
 
         public void DisplayUserBuysProduct(BuyTransaction transaction)
@@ -62,7 +63,7 @@ namespace Eksamen
 
         public void Close()
         {
-            Console.WriteLine($"Closeing program, bye!");
+            Console.WriteLine($"Closing program, bye!");
             _running = false;
         }
 
@@ -100,7 +101,7 @@ namespace Eksamen
                 {
                     HandleInput();
                 }
-                catch (NonExistingUserException e)
+                catch (NonExistingUserException e) //TODO GØR DET HER MINDRE KOKS
                 {
                     DisplayGeneralError(e.Message);
                 }
@@ -109,6 +110,10 @@ namespace Eksamen
                     DisplayGeneralError(e.Message);
                 }
                 catch (InsufficientCreditsException e)
+                {
+                    DisplayGeneralError(e.Message);
+                }
+                catch (NotActiveProductException e)
                 {
                     DisplayGeneralError(e.Message);
                 }
@@ -131,7 +136,7 @@ namespace Eksamen
                 Console.WriteLine(isActiveProduct);
             }
             Console.WriteLine("");
-            Console.WriteLine("Enter command:");
+            Console.Write("Enter command: ");
 
         }
 

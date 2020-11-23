@@ -23,7 +23,7 @@ namespace Eksamen
                 Active = false;
             }
 
-            CanBeBoughtOnCredit = false; //I guess
+            CanBeBoughtOnCredit = false;
         }
         public Product(int id, string name, decimal price, bool active, bool canBeBoughOnCredit)
         {

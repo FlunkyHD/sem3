@@ -21,6 +21,10 @@ namespace Eksamen
                 {
                     _firstName = value;
                 }
+                else
+                {
+                    throw new InvalidDataException("Invalid firstname");
+                }
             }
         }
 
@@ -35,24 +39,44 @@ namespace Eksamen
                 {
                     _lastName = value;
                 }
+                else
+                {
+                    throw new InvalidDataException("Invalid lastname");
+                }
             }
         }
 
         private string _username;
-        //TODO LÆR REGEX
         public string Username
         {
             get { return _username; }
-            set { _username = value;  } //TODO FIX
-        }
-
-        private string email;
-        public string Email
-        {
-            get { return email; }
             set
             {
-                email = value; //TODO FIX KOKS MED TJEK AF EMAIL, NOGET MED AT DELE DEN OP I 2
+                if (Regex.IsMatch(value, "^[a-z0-9_]+$"))
+                {
+                    _username = value;
+                }
+                else
+                {
+                    throw new InvalidDataException("Invalid username"); //TODO LAV EN MED USERS
+                }
+            }
+        }
+
+        private string _email;
+        public string Email
+        {
+            get { return _email; }
+            set
+            {
+                if (Regex.IsMatch(value, "^(?!\\.|\\-)[a-zA-Z0-9+_\\.\\-]+@[a-zA-Z0-9.-]+[^\\.\\-]$") && value.Contains('.'))
+                {
+                    _email = value;
+                }
+                else
+                {
+                    throw new InvalidDataException("Invalid email");
+                }
             }
         }
 
@@ -62,19 +86,11 @@ namespace Eksamen
         {
             get
             {
-                if (_balance <= 50)
-                {
-                    //TODO DELGIATE MED NOTIFICATION
-                }
                 return _balance;
             }
             set
             {
                 _balance = value;
-                if (_balance <= 50)
-                {
-                    //TODO DELIGATE MED NOTIFICATION
-                }
             }
         }
 

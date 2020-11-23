@@ -58,6 +58,7 @@ namespace Eksamen
             {
                 UserBalanceWarning?.Invoke(transaction.User, transaction.User.Balance);
             }
+            writeToLogFile(transaction);
             allTransactions.Add(transaction);
         }
 
@@ -71,15 +72,25 @@ namespace Eksamen
         {
             List<Transaction> transactions = allTransactions.FindAll(x => x.User == user);
             transactions.Reverse();
-            //TODO transactions.RemoveRange(count, transactions.Count - count);
-
+            if (transactions.Count > 10)
+            {
+                transactions.RemoveRange(count, transactions.Count - count);
+            }
             return transactions;
         }
 
-        public User GetUsers(Func<User, bool> predicate) //TODO
+
+        public User GetUsers(Func<User, bool> predicate) //TODO, tror det virker
         {
-            //return allUsers.FindAll();
-            throw new NotImplementedException();
+            foreach (User user in allUsers)
+            {
+                if (predicate(user))
+                {
+                    return user;
+                }
+            }
+
+            return null;
         }
 
         public User GetUserByUsername(string username)
@@ -95,31 +106,24 @@ namespace Eksamen
             throw new NonExistingUserException();
         }
 
-        //TODO GØR PATHS RELATIVE, ELLER PÅ ANDEN MÅDE MINDRE KOKS
         private List<Product> readProductFile()
         {
-            return File.ReadLines("C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Eksamen\\Data\\products.csv").Skip(1).Select(line => new Product(line)).ToList();
+            return File.ReadLines("..\\..\\..\\Data\\products.csv").Skip(1).Select(line => new Product(line)).ToList();
         }
 
         private List<User> readUserFile()
         {
-            return File.ReadLines("C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Eksamen\\Data\\users.csv").Skip(1).Select(line => new User(line)).ToList();
+            return File.ReadLines("..\\..\\..\\Data\\users.csv").Skip(1).Select(line => new User(line)).ToList();
         }
 
-        //TODO TILFØJ LOGFIL
-
-        public void PrintAll()
+        private void writeToLogFile(Transaction transaction)
         {
-            foreach (var user in allUsers)
-            {
-                Console.WriteLine(user);
-            }
+            StringBuilder sb = new StringBuilder();
 
-            foreach (var product in allProducts)
-            {
-                Console.WriteLine(product);
-            }
+            sb.AppendLine(transaction.ToString());
+            File.AppendAllText("log.txt", sb.ToString());
         }
+
     }
 
 }
