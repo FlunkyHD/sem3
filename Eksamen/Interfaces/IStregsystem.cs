@@ -14,5 +14,7 @@ namespace Eksamen
         User GetUsers(Func<User, bool> predicate);
         User GetUserByUsername(string username);
         event UserBalanceNotification UserBalanceWarning;
+        event FileReadWarning FileReadError; //Tilføjet selv
+        void ReadFiles(); //OGSÅ TILFØJET SELV
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,8 +17,7 @@ namespace Eksamen
 
         public Stregsystem()
         {
-            allProducts = readProductFile();
-            allUsers = readUserFile();
+            
         }
 
         public IEnumerable<Product> ActiveProducts
@@ -58,6 +59,7 @@ namespace Eksamen
             {
                 UserBalanceWarning?.Invoke(transaction.User, transaction.User.Balance);
             }
+            writeToLogFile(transaction);
             allTransactions.Add(transaction);
         }
 
@@ -71,15 +73,25 @@ namespace Eksamen
         {
             List<Transaction> transactions = allTransactions.FindAll(x => x.User == user);
             transactions.Reverse();
-            //TODO transactions.RemoveRange(count, transactions.Count - count);
-
+            if (transactions.Count > 10)
+            {
+                transactions.RemoveRange(count, transactions.Count - count);
+            }
             return transactions;
         }
 
-        public User GetUsers(Func<User, bool> predicate) //TODO
+
+        public User GetUsers(Func<User, bool> predicate) //TODO, tror det virker
         {
-            //return allUsers.FindAll();
-            throw new NotImplementedException();
+            foreach (User user in allUsers)
+            {
+                if (predicate(user))
+                {
+                    return user;
+                }
+            }
+
+            throw new NonExistingUserException($"A user that matches this predicate: {predicate} could not be found");
         }
 
         public User GetUserByUsername(string username)
@@ -92,34 +104,52 @@ namespace Eksamen
                 }
             }
 
-            throw new NonExistingUserException();
+            throw new NonExistingUserException($"A user with this username: {username} could not be found");
         }
 
-        //TODO GØR PATHS RELATIVE, ELLER PÅ ANDEN MÅDE MINDRE KOKS
-        private List<Product> readProductFile()
+
+        public event FileReadWarning FileReadError;
+        public void ReadFiles()
         {
-            return File.ReadLines("C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Eksamen\\Data\\products.csv").Skip(1).Select(line => new Product(line)).ToList();
+            allProducts = readFile("..\\..\\..\\Data\\products.csv", (s => new Product(s)));
+            allUsers = readFile("..\\..\\..\\Data\\users.csv", (s => new User(s)));
         }
 
-        private List<User> readUserFile()
-        {
-            return File.ReadLines("C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Eksamen\\Data\\users.csv").Skip(1).Select(line => new User(line)).ToList();
-        }
 
-        //TODO TILFØJ LOGFIL
-
-        public void PrintAll()
+        private List<T> readFile<T>(string path, Func<string,T> func)
         {
-            foreach (var user in allUsers)
+            List<T> liste = new List<T>();
+            try
             {
-                Console.WriteLine(user);
+                liste = File.ReadLines(path).Skip(1).Select(line => func(line)).ToList();
+            }
+            catch (Exception e)
+            {
+                FileReadError?.Invoke(e.Message);
             }
 
-            foreach (var product in allProducts)
-            {
-                Console.WriteLine(product);
-            }
+            return liste;
         }
+
+        //TODO NOK FJERN DET HER
+        //private List<Product> readProductFile()
+        //{
+        //    return File.ReadLines("..\\..\\..\\Data\\products.csv").Skip(1).Select(line => new Product(line)).ToList();
+        //}
+
+        //private List<User> readUserFile()
+        //{
+        //    return File.ReadLines("..\\..\\..\\Data\\users.csv").Skip(1).Select(line => new User(line)).ToList();
+        //}
+
+        private void writeToLogFile(Transaction transaction)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(transaction.ToString());
+            File.AppendAllText("log.txt", sb.ToString());
+        }
+
     }
 
 }

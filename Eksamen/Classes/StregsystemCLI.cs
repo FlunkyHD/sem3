@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Text;
 using System.Xml.Schema;
+using Eksamen;
 
 namespace Eksamen
 {
@@ -14,7 +15,16 @@ namespace Eksamen
         public StregsystemCLI(IStregsystem s)
         {
             IS = s;
+            IS.FileReadError += DisplayFileReadError;
             IS.UserBalanceWarning += UserBalanceWarning;
+            IS.ReadFiles();
+        }
+
+        private void DisplayFileReadError(string message)
+        {
+            _running = false;
+            Console.WriteLine($"Files could not be read because of this invalid data: ({message})");
+            Console.WriteLine($"Closing application...");
         }
 
         public void DisplayUserNotFound(string username)
@@ -47,7 +57,7 @@ namespace Eksamen
 
         public void DisplayAdminCommandNotFoundMessage(string adminCommand)
         {
-            Console.WriteLine($"This: ({adminCommand}) was not found");
+            Console.WriteLine($"This admin command: ({adminCommand}) was not found");
         }
 
         public void DisplayUserBuysProduct(BuyTransaction transaction)
@@ -62,7 +72,7 @@ namespace Eksamen
 
         public void Close()
         {
-            Console.WriteLine($"Closeing program, bye!");
+            Console.WriteLine($"Closing program, bye!");
             _running = false;
         }
 
@@ -91,8 +101,8 @@ namespace Eksamen
 
         public void Start()
         {
-            _running = true;
-            do
+
+            while (_running)
             {
                 WriteMenu();
 
@@ -100,7 +110,7 @@ namespace Eksamen
                 {
                     HandleInput();
                 }
-                catch (NonExistingUserException e)
+                catch (NonExistingUserException e) //TODO GØR DET HER MINDRE KOKS
                 {
                     DisplayGeneralError(e.Message);
                 }
@@ -112,8 +122,11 @@ namespace Eksamen
                 {
                     DisplayGeneralError(e.Message);
                 }
-                
-            } while (_running);
+                catch (NotActiveProductException e)
+                {
+                    DisplayGeneralError(e.Message);
+                }
+            }
         }
 
         public event StregsystemEvent CommandEntered;
@@ -131,7 +144,7 @@ namespace Eksamen
                 Console.WriteLine(isActiveProduct);
             }
             Console.WriteLine("");
-            Console.WriteLine("Enter command:");
+            Console.Write("Enter command: ");
 
         }
 

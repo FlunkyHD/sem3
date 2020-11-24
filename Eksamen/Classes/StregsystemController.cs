@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Eksamen
@@ -8,30 +10,49 @@ namespace Eksamen
     {
         private IStregsystem S;
         private IStregsystemUI SUI;
-        private Dictionary<string, Action<int>> _adminCommands = new Dictionary<string, Action<int>>();
+        private Dictionary<string, Action<string[]>> _adminCommands = new Dictionary<string, Action<string[]>>()
+        {
+            //{ ":quit", (string[] command) => SUI.Close() }, //TODO KAN MAN RYKKE DET HEROP???
+            //{ ":q", (string[] command) => SUI.Close() },
+        };
 
         public StregsystemController(IStregsystemUI sui, IStregsystem s)
         {
             S = s;
             SUI = sui;
             SUI.CommandEntered += ParseCommand;
-            _adminCommands.Add(":quit", (int i) => SUI.Close());
-            _adminCommands.Add(":q", (int i) => SUI.Close());
-            _adminCommands.Add(":activate", (int  i) => S.GetProductByID(i).Active = true);
-            _adminCommands.Add(":deactivate", (int i) => S.GetProductByID(i).Active = false);
-            _adminCommands.Add(":crediton", (int i) => S.GetProductByID(i).CanBeBoughtOnCredit = true);
-            _adminCommands.Add(":creditoff", (int i) => S.GetProductByID(i).CanBeBoughtOnCredit = false);
-            //TODO _adminCommands.Add(":addcredits", (int i) => S.GetProductByID(i).Active = true);
+            _adminCommands.Add(":quit", (string[] command) => SUI.Close());
+            _adminCommands.Add(":q", (string[] command) => SUI.Close());
+            _adminCommands.Add(":activate", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).Active = true);
+            _adminCommands.Add(":deactivate", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).Active = false);
+            _adminCommands.Add(":crediton", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = true);
+            _adminCommands.Add(":creditoff", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = false);
+            _adminCommands.Add(":addcredits", (string[] command) => S.AddCreditsToAccount(s.GetUserByUsername(command[1]), Convert.ToInt32(command[2])));
         }
-
-
+        //TODO MÅSKE HÅNTERE EXCEPTIONS HERINDE LIGESOM ALLE ANDRE PÅ DISCORD
         public void ParseCommand(string command)
         {
             User user;
             Product product;
             if (command.StartsWith(":"))
             {
-                //TODO ADMIN COMMANDS
+                string[] adminSplit = command.Split(' ');
+
+                foreach (KeyValuePair<string, Action<string[]>> commandAction in _adminCommands)
+                {
+                    if (adminSplit[0] == commandAction.Key)
+                    {
+                        commandAction.Value?.Invoke((adminSplit));
+                        break;
+                    }
+
+                    if (commandAction.Equals(_adminCommands.Last()))
+                    {
+                        SUI.DisplayAdminCommandNotFoundMessage($"{adminSplit[0]}");
+                    }
+
+                }
+
             }
             else
             { //TODO MÅSKE EN STOR  TRY CATCH????
@@ -111,8 +132,6 @@ namespace Eksamen
             }
             SUI.DisplayUserBuysProduct(count, bt);
         }
-
-
 
     }
 }
