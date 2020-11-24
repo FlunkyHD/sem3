@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,8 +17,7 @@ namespace Eksamen
 
         public Stregsystem()
         {
-            allProducts = readProductFile();
-            allUsers = readUserFile();
+            
         }
 
         public IEnumerable<Product> ActiveProducts
@@ -90,7 +91,7 @@ namespace Eksamen
                 }
             }
 
-            return null;
+            throw new NonExistingUserException($"A user that matches this predicate: {predicate} could not be found");
         }
 
         public User GetUserByUsername(string username)
@@ -103,18 +104,43 @@ namespace Eksamen
                 }
             }
 
-            throw new NonExistingUserException();
+            throw new NonExistingUserException($"A user with this username: {username} could not be found");
         }
 
-        private List<Product> readProductFile()
+
+        public event FileReadWarning FileReadError;
+        public void ReadFiles()
         {
-            return File.ReadLines("..\\..\\..\\Data\\products.csv").Skip(1).Select(line => new Product(line)).ToList();
+            allProducts = readFile("..\\..\\..\\Data\\products.csv", (s => new Product(s)));
+            allUsers = readFile("..\\..\\..\\Data\\users.csv", (s => new User(s)));
         }
 
-        private List<User> readUserFile()
+
+        private List<T> readFile<T>(string path, Func<string,T> func)
         {
-            return File.ReadLines("..\\..\\..\\Data\\users.csv").Skip(1).Select(line => new User(line)).ToList();
+            List<T> liste = new List<T>();
+            try
+            {
+                liste = File.ReadLines(path).Skip(1).Select(line => func(line)).ToList();
+            }
+            catch (Exception e)
+            {
+                FileReadError?.Invoke(e.Message);
+            }
+
+            return liste;
         }
+
+        //TODO NOK FJERN DET HER
+        //private List<Product> readProductFile()
+        //{
+        //    return File.ReadLines("..\\..\\..\\Data\\products.csv").Skip(1).Select(line => new Product(line)).ToList();
+        //}
+
+        //private List<User> readUserFile()
+        //{
+        //    return File.ReadLines("..\\..\\..\\Data\\users.csv").Skip(1).Select(line => new User(line)).ToList();
+        //}
 
         private void writeToLogFile(Transaction transaction)
         {

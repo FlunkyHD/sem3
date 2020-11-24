@@ -15,7 +15,16 @@ namespace Eksamen
         public StregsystemCLI(IStregsystem s)
         {
             IS = s;
+            IS.FileReadError += DisplayFileReadError;
             IS.UserBalanceWarning += UserBalanceWarning;
+            IS.ReadFiles();
+        }
+
+        private void DisplayFileReadError(string message)
+        {
+            _running = false;
+            Console.WriteLine($"Files could not be read because of this invalid data: ({message})");
+            Console.WriteLine($"Closing application...");
         }
 
         public void DisplayUserNotFound(string username)
@@ -92,8 +101,8 @@ namespace Eksamen
 
         public void Start()
         {
-            _running = true;
-            do
+
+            while (_running)
             {
                 WriteMenu();
 
@@ -117,8 +126,7 @@ namespace Eksamen
                 {
                     DisplayGeneralError(e.Message);
                 }
-                
-            } while (_running);
+            }
         }
 
         public event StregsystemEvent CommandEntered;

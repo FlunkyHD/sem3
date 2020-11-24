@@ -23,7 +23,7 @@ namespace Eksamen
                 }
                 else
                 {
-                    throw new InvalidDataException("Invalid firstname");
+                    throw new InvalidDataException($"Invalid firstname {value}");
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace Eksamen
                 }
                 else
                 {
-                    throw new InvalidDataException("Invalid lastname");
+                    throw new InvalidDataException($"Invalid lastname: {value}");
                 }
             }
         }
@@ -58,7 +58,7 @@ namespace Eksamen
                 }
                 else
                 {
-                    throw new InvalidDataException("Invalid username"); //TODO LAV EN MED USERS
+                    throw new InvalidDataException($"Invalid username: {value}"); //TODO LAV EN MED USERS
                 }
             }
         }
@@ -75,7 +75,7 @@ namespace Eksamen
                 }
                 else
                 {
-                    throw new InvalidDataException("Invalid email");
+                    throw new InvalidDataException($"Invalid email: {value}");
                 }
             }
         }

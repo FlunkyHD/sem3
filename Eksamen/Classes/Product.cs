@@ -48,7 +48,7 @@ namespace Eksamen
                 }
                 else
                 {
-                    throw new InvalidDataException("The product ID has to be 1 or higher");
+                    throw new InvalidDataException($"The product ID has to be 1 or higher! Was given: {value}");
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace Eksamen
                 }
                 else
                 {
-                    throw  new InvalidDataException("The name can not be null");
+                    throw  new InvalidDataException($"The name can not be {value}");
                 }
             }
         }
