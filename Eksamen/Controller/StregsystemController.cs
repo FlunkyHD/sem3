@@ -30,7 +30,7 @@ namespace Eksamen.Controller
             _adminCommands.Add(":crediton", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = true);
             _adminCommands.Add(":creditoff", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = false);
             _adminCommands.Add(":addcredits", (string[] command) => S.AddCreditsToAccount(s.GetUserByUsername(command[1]), Convert.ToInt32(command[2]))); //TODO SKAL DET PRINTES???
-        }
+        } //TODO MÅSKE NOGET MED AT TESTE OM MAN SKRIVER FOR MANGE INPUT!!!
 
         private void Controller(string command)
         {
