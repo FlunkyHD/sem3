@@ -105,7 +105,7 @@ namespace Eksamen.Core
             FirstName = Convert.ToString(split[1]);
             LastName = Convert.ToString(split[2]);
             Username = Convert.ToString(split[3]);
-            Balance = Convert.ToDecimal(split[4]);
+            Balance = (Convert.ToDecimal(split[4])) / 100; //To DDK
             Email = Convert.ToString(split[5]);
         }
         public User(int id, string firstname, string lastname, string username, string email, decimal balance)

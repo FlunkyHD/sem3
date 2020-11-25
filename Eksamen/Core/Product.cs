@@ -13,7 +13,7 @@ namespace Eksamen.Core
             string[] split = line.Split(';');
             ID = Convert.ToInt32(split[0]);
             Name = Regex.Replace(Convert.ToString(split[1]), "<.*?>", String.Empty).Replace("\"", "");
-            Price = Convert.ToDecimal(split[2]);
+            Price = (Convert.ToDecimal(split[2])) / 100; //To DDK
             if (Convert.ToInt32(split[3]) == 1)
             {
                 Active = true;
@@ -97,7 +97,7 @@ namespace Eksamen.Core
 
         public override string ToString()
         {
-            return $"{ID}, {Name}: {Price}";
+            return String.Format("{0,-7} {1,-35} {2,7}", $"{ID})", Name, $"{Price}");
         }
     }
 }

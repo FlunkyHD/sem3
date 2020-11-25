@@ -27,14 +27,15 @@ namespace Eksamen.Core
 
         public override string ToString()
         {
-            return $"{User} bought {ProductBought.Name} for {AmountAtPurchase} at {TransactionTime} with ID:{ID}";
+            return $"{User} bought {ProductBought.Name} for {AmountAtPurchase} DKK at {TransactionTime} with ID:{ID}";
         }
 
         public override void Execute()
         {
             if ((User.Balance - AmountAtPurchase) < 0 && !ProductBought.CanBeBoughtOnCredit)
             {
-                throw new InsufficientCreditsException($"User: {User} does not have enough balance to buy: {ProductBought}");
+                //throw new InsufficientCreditsException(User, ProductBought);
+                throw new InsufficientCreditsException($"User: {User.Username} does not have enough balance to buy: {ProductBought.Name}");
             }
 
             if (!ProductBought.Active)

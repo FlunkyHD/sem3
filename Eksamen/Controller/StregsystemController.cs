@@ -22,17 +22,43 @@ namespace Eksamen.Controller
         {
             S = s;
             SUI = sui;
-            SUI.CommandEntered += ParseCommand;
+            SUI.CommandEntered += Controller;
             _adminCommands.Add(":quit", (string[] command) => SUI.Close());
             _adminCommands.Add(":q", (string[] command) => SUI.Close());
             _adminCommands.Add(":activate", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).Active = true);
             _adminCommands.Add(":deactivate", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).Active = false);
             _adminCommands.Add(":crediton", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = true);
             _adminCommands.Add(":creditoff", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = false);
-            _adminCommands.Add(":addcredits", (string[] command) => S.AddCreditsToAccount(s.GetUserByUsername(command[1]), Convert.ToInt32(command[2])));
+            _adminCommands.Add(":addcredits", (string[] command) => S.AddCreditsToAccount(s.GetUserByUsername(command[1]), Convert.ToInt32(command[2]))); //TODO SKAL DET PRINTES???
         }
-        //TODO MÅSKE HÅNTERE EXCEPTIONS HERINDE LIGESOM ALLE ANDRE PÅ DISCORD
-        public void ParseCommand(string command)
+
+        private void Controller(string command)
+        {
+            try
+            {
+                ParseCommand(command);
+            }
+            catch (NonExistingUserException e)
+            {
+                SUI.DisplayUserNotFound(e.Message);
+            }
+            catch (NonExistingProductException e)
+            {
+                SUI.DisplayProductNotFound(e.Message);
+            }
+            catch (InsufficientCreditsException e)
+            {
+                SUI.DisplayGeneralError(e.Message);
+                //SUI.DisplayInsufficientCash();
+            }
+            catch (NotActiveProductException e)
+            {
+                SUI.DisplayGeneralError(e.Message);
+            }
+
+        }
+
+        private void ParseCommand(string command)
         {
             User user;
             Product product;
@@ -57,7 +83,7 @@ namespace Eksamen.Controller
 
             }
             else
-            { //TODO MÅSKE EN STOR  TRY CATCH????
+            {
                 string[] split = command.Split(' ');
                 user = TestUser(split[0]);
                 if (split.Length == 3) //QUICKBUY
@@ -128,11 +154,16 @@ namespace Eksamen.Controller
         private void MultiBuyProduct(User user, Product product, int count)
         {
             BuyTransaction bt = null;
+            if (user.Balance - (product.Price * count) < 0)
+            {
+                throw new InsufficientCreditsException($"User: {user} did not have enough balance to buy {count}x {product.Name}");
+            }
             for (int i = 0; i < count; i++)
             {
                 bt = S.BuyProduct(user, product);
             }
             SUI.DisplayUserBuysProduct(count, bt);
+
         }
 
     }
