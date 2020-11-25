@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Eksamen
+namespace Eksamen.Core
 {
     public delegate void UserBalanceNotification(User user, decimal balance);
 

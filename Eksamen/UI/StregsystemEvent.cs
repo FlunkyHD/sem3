@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Eksamen
+namespace Eksamen.UI
 {
     public delegate void StregsystemEvent(string command);
 

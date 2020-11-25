@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Eksamen.Controller;
+using Eksamen.Core;
+using Eksamen.UI;
 
 namespace Eksamen
 {

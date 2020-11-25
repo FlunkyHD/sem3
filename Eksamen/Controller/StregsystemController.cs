@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Eksamen.Core;
+using Eksamen.UI;
 
-namespace Eksamen
+namespace Eksamen.Controller
 {
     public class StregsystemController
     {

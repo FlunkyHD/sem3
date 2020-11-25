@@ -5,8 +5,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Xml.Schema;
 using Eksamen;
+using Eksamen.Core;
 
-namespace Eksamen
+namespace Eksamen.UI
 {
     public class StregsystemCLI : IStregsystemUI
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Eksamen
+namespace Eksamen.Core
 {
     public abstract class Transaction
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Eksamen;
 
-namespace Eksamen
+namespace Eksamen.Core
 {
     public class BuyTransaction : Transaction
     {

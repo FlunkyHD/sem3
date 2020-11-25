@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using Eksamen;
 
-namespace Eksamen
+namespace Eksamen.Core
 {
     public class Stregsystem : IStregsystem
     {

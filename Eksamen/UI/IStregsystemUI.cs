@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Eksamen.Core;
 
-namespace Eksamen
+namespace Eksamen.UI
 {
     public interface IStregsystemUI
     {
