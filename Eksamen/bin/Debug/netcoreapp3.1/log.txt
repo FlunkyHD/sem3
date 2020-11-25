@@ -152,3 +152,4 @@ Morten Koks  (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 at 25-11-202
 Morten Koks  (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 25-11-2020 19:00:00 with ID:1
 Inserting 15 into Morten Koks  (motor@aau.student.dk) at 25-11-2020 19:00:24 with ID:2
 Morten Koks  (motor@aau.student.dk) bought ½L Matilde cacao for 13,5 DKK at 25-11-2020 19:15:48 with ID:2
+Inserting 10000 DKK into Morten Koks  (motor@aau.student.dk) at 25-11-2020 21:48:28 with ID:1

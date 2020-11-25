@@ -55,6 +55,10 @@ namespace Eksamen.Controller
             {
                 SUI.DisplayGeneralError(e.Message);
             }
+            catch (FormatException e)
+            {
+                SUI.DisplayGeneralError(e.Message);
+            }
 
         }
 
@@ -116,7 +120,7 @@ namespace Eksamen.Controller
             {
                 user = S.GetUserByUsername(split);
             }
-            catch (NonExistingUserException e)
+            catch (NonExistingUserException)
             {
                 SUI.DisplayUserNotFound(split);
                 throw;
@@ -132,7 +136,7 @@ namespace Eksamen.Controller
             {
                 product = S.GetProductByID(Convert.ToInt32(productID));
             }
-            catch (NonExistingProductException e)
+            catch (NonExistingProductException)
             {
                 SUI.DisplayProductNotFound(productID);
                 throw;
