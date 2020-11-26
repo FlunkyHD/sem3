@@ -42,13 +42,7 @@ namespace Eksamen.UI
         {
             List<Transaction> transactions = (List<Transaction>)IS.GetTransactions(user, 10);
             Console.WriteLine($"{user}: Balance: {user.Balance}");
-            Console.WriteLine($"Last {transactions.Count} transations:");
-            foreach (Transaction itemTransaction in transactions)
-            {
-                Console.WriteLine(itemTransaction);
-            }
-
-            Console.WriteLine("");
+            DisplayUserTransactions(transactions);
         }
 
         public void DisplayTooManyArgumentsError(string command)
@@ -89,15 +83,18 @@ namespace Eksamen.UI
 
         public void DisplayUserTransactions(List<Transaction> transactions)
         {
+            Console.WriteLine($"Last {transactions.Count} transations:");
             foreach (Transaction itemTransaction in transactions)
             {
                 Console.WriteLine(itemTransaction);
             }
+
+            Console.WriteLine("");
         }
 
         private void UserBalanceWarning(User user, decimal balance)
         {
-            Console.WriteLine($"WARNING! User: {user.Username}'s balance is only: {balance}");
+            Console.WriteLine($"WARNING! User: {user.Username}'s balance is only: {balance} DKK");
         }
 
         public void Start()
@@ -106,28 +103,9 @@ namespace Eksamen.UI
             while (_running)
             {
                 WriteMenu();
-
-                try
-                {
-                    HandleInput();
-                }
-                catch (NonExistingUserException e) //TODO GØR DET HER MINDRE KOKS
-                {
-                    DisplayGeneralError(e.Message);
-                }
-                catch (NonExistingProductException e)
-                {
-                    DisplayGeneralError(e.Message);
-                }
-                catch (InsufficientCreditsException e)
-                {
-                    DisplayGeneralError(e.Message);
-                }
-                catch (NotActiveProductException e)
-                {
-                    DisplayGeneralError(e.Message);
-                }
+                HandleInput();
             }
+
         }
 
         public event StregsystemEvent CommandEntered;
@@ -140,9 +118,11 @@ namespace Eksamen.UI
 
         public void WriteMenu()
         {
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~ F-Klub Stregssytem ~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine("{0,-7} {1,-35} {2,10}", "ID:", "Varenavn:", "Pris:");
             foreach (Product isActiveProduct in IS.ActiveProducts)
             {
-                Console.WriteLine(isActiveProduct);
+                Console.WriteLine($"{isActiveProduct} DKK");
             }
             Console.WriteLine("");
             Console.Write("Enter command: ");

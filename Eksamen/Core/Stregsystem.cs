@@ -55,7 +55,7 @@ namespace Eksamen.Core
         private void ExecuteTransaction(Transaction transaction)
         {
             transaction.Execute();
-            if (transaction.User.Balance <= 50)
+            if (transaction.User.Balance <= 5)
             {
                 UserBalanceWarning?.Invoke(transaction.User, transaction.User.Balance);
             }

@@ -13,7 +13,7 @@ namespace Eksamen.Core
 
         public override string ToString()
         {
-            return $"Inserting {Amount} into {User} at {TransactionTime} with ID:{ID}";
+            return $"Inserting {Amount} DKK into {User} at {TransactionTime} with ID:{ID}";
         }
 
 
