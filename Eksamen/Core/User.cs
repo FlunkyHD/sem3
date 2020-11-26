@@ -9,6 +9,8 @@ namespace Eksamen.Core
 {
     public class User : IComparable<User>
     {
+        private static int idCounter = 0; //TODO MÅSKE IMPLEMENTER DET HER, ELLER SLET
+        private int _id = ++idCounter;
         public int ID { get; set; }
         private string _firstName;
 
@@ -69,7 +71,7 @@ namespace Eksamen.Core
             get { return _email; }
             set
             {
-                if (Regex.IsMatch(value, "^(?!\\.|\\-)[a-zA-Z0-9+_\\.\\-]+@[a-zA-Z0-9.-]+[^\\.\\-]$") && value.Contains('.'))
+                if (Regex.IsMatch(value, "^(?!\\.|\\-)[a-zA-Z0-9+_\\.\\-]+@[a-zA-Z0-9.-]+[^\\.\\-]$") && value.Split('@')[1].Contains('.'))
                 {
                     _email = value;
                 }
@@ -80,19 +82,7 @@ namespace Eksamen.Core
             }
         }
 
-        private decimal _balance;
-
-        public decimal Balance
-        {
-            get
-            {
-                return _balance;
-            }
-            set
-            {
-                _balance = value;
-            }
-        }
+        public decimal Balance { get; set; }
 
         private User()
         {

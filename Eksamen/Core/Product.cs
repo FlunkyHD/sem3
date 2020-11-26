@@ -70,30 +70,11 @@ namespace Eksamen.Core
                 }
             }
         }
+        public decimal Price { get; set; }
 
-        private decimal _price;
+        public bool Active { get; set; }
 
-        public decimal Price
-        {
-            get { return _price; }
-            set { _price = value; }
-        }
-
-        private bool _active;
-
-        public bool Active
-        {
-            get { return _active; }
-            set { _active = value;  }
-        }
-
-        private bool _canBeOutOfCredit;
-
-        public bool CanBeBoughtOnCredit
-        {
-            get { return _canBeOutOfCredit; }
-            set { _canBeOutOfCredit = value; }
-        }
+        public bool CanBeBoughtOnCredit { get; set; }
 
         public override string ToString()
         {

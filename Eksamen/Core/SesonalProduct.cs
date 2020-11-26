@@ -8,10 +8,8 @@ namespace Eksamen.Core
     {
         public SesonalProduct(int id, string name, decimal price, bool active, bool canBeBoughOnCredit, DateTime startDate, DateTime endDate) : base(id, name, price, active, canBeBoughOnCredit)
         {
-            //TODO Tjek om man skal skrive de andre op :)
             SeasonEndDate = endDate;
             SeasonStartDate = startDate;
-
         }
 
         private DateTime _seasonStartDate;
@@ -20,7 +18,19 @@ namespace Eksamen.Core
         private DateTime _seasonEndDate;
         public DateTime SeasonEndDate { get; set; }
 
+        public bool IsSeasonActive()
+        {
+            if (SeasonStartDate.CompareTo(DateTime.Now) < 0 && SeasonEndDate.CompareTo(DateTime.Now) > 0)
+            {
+                Active = true;
+            }
+            else
+            {
+                Active = false;
+            }
 
+            return Active;
+        }
 
     }
 }
