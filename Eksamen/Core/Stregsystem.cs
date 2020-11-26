@@ -15,11 +15,6 @@ namespace Eksamen.Core
         private List<User> allUsers;
         private List<Transaction> allTransactions = new List<Transaction>();
 
-        public Stregsystem()
-        {
-            
-        }
-
         public IEnumerable<Product> ActiveProducts
         {
             get
@@ -65,7 +60,16 @@ namespace Eksamen.Core
 
         public Product GetProductByID(int id)
         {
-            return allProducts.Find(x => x.ID == id);
+            Product product;
+
+            product = allProducts.Find(x => x.ID == id);
+
+            if (product == null)
+            {
+                throw new NonExistingProductException($"ID: {id}");
+            }
+
+            return product;
 
         }
 
@@ -81,7 +85,7 @@ namespace Eksamen.Core
         }
 
 
-        public User GetUsers(Func<User, bool> predicate) //TODO, tror det virker
+        public User GetUsers(Func<User, bool> predicate)
         {
             foreach (User user in allUsers)
             {
@@ -104,7 +108,7 @@ namespace Eksamen.Core
                 }
             }
 
-            throw new NonExistingUserException($"A user with this username: {username} could not be found");
+            throw new NonExistingUserException($"{username}");
         }
 
 
@@ -131,21 +135,9 @@ namespace Eksamen.Core
             return liste;
         }
 
-        //TODO NOK FJERN DET HER
-        //private List<Product> readProductFile()
-        //{
-        //    return File.ReadLines("..\\..\\..\\Data\\products.csv").Skip(1).Select(line => new Product(line)).ToList();
-        //}
-
-        //private List<User> readUserFile()
-        //{
-        //    return File.ReadLines("..\\..\\..\\Data\\users.csv").Skip(1).Select(line => new User(line)).ToList();
-        //}
-
         private void writeToLogFile(Transaction transaction)
         {
             StringBuilder sb = new StringBuilder();
-
             sb.AppendLine(transaction.ToString());
             File.AppendAllText("log.txt", sb.ToString());
         }

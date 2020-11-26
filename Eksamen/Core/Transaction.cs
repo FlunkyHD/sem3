@@ -39,10 +39,8 @@ namespace Eksamen.Core
             }
         }
 
-        private DateTime _transactionTime;
         public DateTime TransactionTime { get; }
 
-        private decimal _amount;
         public decimal Amount { get; set; }
 
         public override string ToString()

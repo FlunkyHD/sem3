@@ -99,13 +99,11 @@ namespace Eksamen.UI
 
         public void Start()
         {
-
             while (_running)
             {
                 WriteMenu();
                 HandleInput();
             }
-
         }
 
         public event StregsystemEvent CommandEntered;
@@ -129,5 +127,9 @@ namespace Eksamen.UI
 
         }
 
+        public void DisplayInserCashTransation(InsertCashTransaction transaction)
+        {
+            Console.WriteLine(transaction);
+        }
     }
 }

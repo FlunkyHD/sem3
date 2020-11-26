@@ -6,7 +6,4 @@ namespace Eksamen.Core
 {
     public delegate void UserBalanceNotification(User user, decimal balance);
 
-    //public class UserBalanceNotificationArgs
-    //{
-    //}
 }

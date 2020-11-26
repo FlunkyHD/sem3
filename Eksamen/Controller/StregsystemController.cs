@@ -12,25 +12,49 @@ namespace Eksamen.Controller
     {
         private IStregsystem S;
         private IStregsystemUI SUI;
-        private Dictionary<string, Action<string[]>> _adminCommands = new Dictionary<string, Action<string[]>>()
-        {
-            //{ ":quit", (string[] command) => SUI.Close() }, //TODO KAN MAN RYKKE DET HEROP???
-            //{ ":q", (string[] command) => SUI.Close() },
-        };
+        private Dictionary<string, Action<string[]>> _adminCommands = new Dictionary<string, Action<string[]>>();
 
         public StregsystemController(IStregsystemUI sui, IStregsystem s)
         {
             S = s;
             SUI = sui;
             SUI.CommandEntered += Controller;
-            _adminCommands.Add(":quit", (string[] command) => SUI.Close());
-            _adminCommands.Add(":q", (string[] command) => SUI.Close());
-            _adminCommands.Add(":activate", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).Active = true);
-            _adminCommands.Add(":deactivate", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).Active = false);
-            _adminCommands.Add(":crediton", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = true);
-            _adminCommands.Add(":creditoff", (string[] command) => S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = false);
-            _adminCommands.Add(":addcredits", (string[] command) => SUI.DisplayInserCashTransation(S.AddCreditsToAccount(s.GetUserByUsername(command[1]), Convert.ToInt32(command[2]))));
-        } //TODO MÅSKE NOGET MED AT TESTE OM MAN SKRIVER FOR MANGE INPUT!!!
+            _adminCommands.Add(":quit", (string[] command) =>
+            {
+                TestArgumentNumber(command, 1); 
+                SUI.Close();
+            });
+            _adminCommands.Add(":q", (string[] command) => 
+                { TestArgumentNumber(command, 1); 
+                    SUI.Close();
+                });
+            _adminCommands.Add(":activate", (string[] command) =>
+            {
+                TestArgumentNumber(command, 2);
+                S.GetProductByID(Convert.ToInt32(command[1])).Active = true;
+            });
+            _adminCommands.Add(":deactivate", (string[] command) =>
+            {
+                TestArgumentNumber(command, 2);
+                S.GetProductByID(Convert.ToInt32(command[1])).Active = false;
+            });
+            _adminCommands.Add(":crediton", (string[] command) =>
+            {
+                TestArgumentNumber(command, 2);
+                S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = true;
+            });
+            _adminCommands.Add(":creditoff", (string[] command) =>
+            {
+                TestArgumentNumber(command, 2);
+                S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = false;
+            });
+            _adminCommands.Add(":addcredits", (string[] command) =>
+            {
+                TestArgumentNumber(command, 3);
+                SUI.DisplayInserCashTransation(S.AddCreditsToAccount(s.GetUserByUsername(command[1]),
+                        Convert.ToInt32(command[2])));
+            });
+        }
 
         private void Controller(string command)
         {
@@ -58,6 +82,14 @@ namespace Eksamen.Controller
             catch (FormatException e)
             {
                 SUI.DisplayGeneralError(e.Message);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                SUI.DisplayGeneralError($"Not enough arguments were entered");
+            }
+            catch (TooManyArgumentsException e)
+            {
+                SUI.DisplayTooManyArgumentsError(e.Message);
             }
 
         }
@@ -89,60 +121,33 @@ namespace Eksamen.Controller
             else
             {
                 string[] split = command.Split(' ');
-                user = TestUser(split[0]);
                 if (split.Length == 3) //QUICKBUY
                 {
-                    product = TestProduct(split[1]);
-                    MultiBuyProduct(user, product, Convert.ToInt32(split[2]));
+                    MultiBuyProduct(S.GetUserByUsername(split[0]), S.GetProductByID(Convert.ToInt32(split[1])), Convert.ToInt32(split[2]));
                 }
                 else if (split.Length == 2) //Normal
                 {
-                    product = TestProduct(split[1]);
-                    BuyProduct(user, product);
+                    BuyProduct(S.GetUserByUsername(split[0]), S.GetProductByID(Convert.ToInt32(split[1])));
                 }
                 else if (split.Length == 1)
                 {
-                    TypedInUsername(user);
+                    TypedInUsername(S.GetUserByUsername(split[0]));
                 }
                 else if (split.Length > 3)
                 {
-                    SUI.DisplayTooManyArgumentsError(command);
+                    throw new TooManyArgumentsException($"{split.Length} arguments entered, a maximum of 3 expected");
                 }
 
             }
 
         }
 
-        private User TestUser(string split)
+        private void TestArgumentNumber(string[] command, int NumberOfArguments)
         {
-            User user;
-            try
+            if (command.Length > NumberOfArguments)
             {
-                user = S.GetUserByUsername(split);
+                throw new TooManyArgumentsException($"{command.Length} arguments entered, only {NumberOfArguments} excepted");
             }
-            catch (NonExistingUserException)
-            {
-                SUI.DisplayUserNotFound(split);
-                throw;
-            }
-
-            return user;
-        }
-
-        private Product TestProduct(string productID)
-        {
-            Product product;
-            try
-            {
-                product = S.GetProductByID(Convert.ToInt32(productID));
-            }
-            catch (NonExistingProductException)
-            {
-                SUI.DisplayProductNotFound(productID);
-                throw;
-            }
-
-            return product;
         }
 
         private void TypedInUsername(User user)

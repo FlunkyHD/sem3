@@ -154,3 +154,6 @@ Inserting 15 into Morten Koks  (motor@aau.student.dk) at 25-11-2020 19:00:24 wit
 Morten Koks  (motor@aau.student.dk) bought ½L Matilde cacao for 13,5 DKK at 25-11-2020 19:15:48 with ID:2
 Inserting 10000 DKK into Morten Koks  (motor@aau.student.dk) at 25-11-2020 21:48:28 with ID:1
 Inserting 12398 DKK into Morten Koks  (motor@aau.student.dk) at 25-11-2020 21:57:26 with ID:1
+Inserting 1000 DKK into Morten Koks  (motor@aau.student.dk) at 26-11-2020 20:07:42 with ID:1
+Morten Koks  (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 26-11-2020 20:08:06 with ID:2
+Morten Koks  (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 26-11-2020 20:11:29 with ID:1
