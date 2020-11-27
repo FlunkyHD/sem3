@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Eksamen.Controller
     {
         private readonly IStregsystem S;
         private readonly IStregsystemUI SUI;
-        private Dictionary<string, Action<string[]>> _adminCommands = new Dictionary<string, Action<string[]>>();
+        private readonly Dictionary<string, Action<string[]>> _adminCommands = new Dictionary<string, Action<string[]>>();
 
         public StregsystemController(IStregsystemUI sui, IStregsystem s)
         {
@@ -130,6 +131,10 @@ namespace Eksamen.Controller
 
         private void MultiBuyProduct(User user, Product product, int count)
         {
+            if (count <= 0)
+            {
+                throw new InvalidDataException($"Amount has to be positive! typed: ({count})");
+            }
             BuyTransaction bt = null;
             if (user.Balance < (product.Price * count) && !product.CanBeBoughtOnCredit)
             {

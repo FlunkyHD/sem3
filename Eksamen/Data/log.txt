@@ -113,3 +113,59 @@ Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK 
 Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 13:45:01 with ID:9
 Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 13:45:01 with ID:10
 Morten Koks (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 13:45:58 with ID:11
+Inserting -100 DKK into Morten Koks (motor@aau.student.dk) at 27-11-2020 16:46:16 with ID:1
+Morten Koks (motor@aau.student.dk) bought Monster for 12 DKK at 27-11-2020 16:46:55 with ID:2
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:1
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:2
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:3
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:4
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:5
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:6
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:7
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:8
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:9
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:23 with ID:10
+Morten Koks (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:49:38 with ID:11
+Morten Koks (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:55:09 with ID:1
+Inserting 100 DKK into Morten Koks (motor@aau.student.dk) at 27-11-2020 18:55:15 with ID:2
+Morten Koks (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:56:09 with ID:4
+Morten Koks (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:56:09 with ID:5
+Morten Koks (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:56:09 with ID:6
+Morten Koks (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:56:09 with ID:7
+Morten Koks (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 18:56:09 with ID:8
+Inserting 100 DKK into Morten Koks (motor@aau.student.dk) at 27-11-2020 18:59:41 with ID:1
+Inserting 69 DKK into Morten Koks (motor@aau.student.dk) at 27-11-2020 19:04:12 with ID:1
+Morten Koks (motor@aau.student.dk) bought Nestea for 13 DKK at 27-11-2020 19:04:20 with ID:2
+Morten Koks (motor@aau.student.dk) bought Nestea for 13 DKK at 27-11-2020 19:04:20 with ID:3
+Morten Koks (motor@aau.student.dk) bought Nestea for 13 DKK at 27-11-2020 19:04:20 with ID:4
+Morten Koks (motor@aau.student.dk) bought Nestea for 13 DKK at 27-11-2020 19:04:20 with ID:5
+Morten Koks (motor@aau.student.dk) bought Nestea for 13 DKK at 27-11-2020 19:04:20 with ID:6
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:04:28 with ID:7
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:04:28 with ID:8
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:04:28 with ID:9
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:04:28 with ID:10
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:04:28 with ID:11
+Morten Koks (motor@aau.student.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:04:36 with ID:12
+Inserting 100 DKK into Morten Koks (motor@aau.student.dk) at 27-11-2020 19:05:37 with ID:13
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:05:41 with ID:14
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:05:41 with ID:15
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:05:41 with ID:16
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:05:41 with ID:17
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Kaffe/Choko(1 kop) for 3 DKK at 27-11-2020 19:05:41 with ID:18
+Morten Koks (motor@aau.student.dk) bought Monster for 12 DKK at 27-11-2020 19:05:52 with ID:19
+Morten Koks (motor@aau.student.dk) bought Monster for 12 DKK at 27-11-2020 19:05:52 with ID:20
+Morten Koks (motor@aau.student.dk) bought Monster for 12 DKK at 27-11-2020 19:05:52 with ID:21
+Morten Koks (motor@aau.student.dk) bought Monster for 12 DKK at 27-11-2020 19:05:52 with ID:22
+Morten Koks (motor@aau.student.dk) bought Monster for 12 DKK at 27-11-2020 19:05:52 with ID:23
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:24
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:25
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:26
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:27
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:28
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:29
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:30
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:31
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:32
+Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:33
+Morten Koks (motor@aau.student.dk) bought Dåseøl (Guinness & Kilkenny) for 16,5 DKK at 27-11-2020 19:06:42 with ID:34
+Morten Koks (motor@aau.student.dk) bought Dåseøl (Guinness & Kilkenny) for 16,5 DKK at 27-11-2020 19:06:42 with ID:35

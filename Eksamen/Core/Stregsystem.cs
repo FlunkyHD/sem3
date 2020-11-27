@@ -13,7 +13,7 @@ namespace Eksamen.Core
     {
         private List<Product> allProducts;
         private List<User> allUsers;
-        private List<Transaction> allTransactions = new List<Transaction>();
+        private readonly List<Transaction> allTransactions = new List<Transaction>();
         public event UserBalanceNotification UserBalanceWarning;
         public event FileReadWarning FileReadError;
 
@@ -55,7 +55,7 @@ namespace Eksamen.Core
             {
                 UserBalanceWarning?.Invoke(transaction.User, transaction.User.Balance);
             }
-            writeToLogFile(transaction);
+            WriteToLogFile(transaction);
             allTransactions.Add(transaction);
         }
 
@@ -120,13 +120,13 @@ namespace Eksamen.Core
 
         public void ReadFiles()
         {
-            allProducts = readFile("..\\..\\..\\Data\\products.csv", (s => new Product(s)));
-            allUsers = readFile("..\\..\\..\\Data\\users.csv", (s => new User(s)));
+            allProducts = ReadFile("..\\..\\..\\Data\\products.csv", (s => new Product(s)));
+            allUsers = ReadFile("..\\..\\..\\Data\\users.csv", (s => new User(s)));
         }
 
 
         //Try to read the file, while creating users/products and returning a list containing them all
-        private List<T> readFile<T>(string path, Func<string,T> func)
+        private List<T> ReadFile<T>(string path, Func<string,T> func)
         {
             List<T> liste = new List<T>();
             try
@@ -142,7 +142,7 @@ namespace Eksamen.Core
         }
 
         //Writes to log.txt inside where the program is executed
-        private void writeToLogFile(Transaction transaction)
+        private void WriteToLogFile(Transaction transaction)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(transaction.ToString());

@@ -89,7 +89,6 @@ namespace Tests
             Assert.IsTrue(AIsSmallerThanB && CIsBPlusOne);
         }
 
-        //TODO Hvad sker der hvis man forsøger at assigne et ID som er 'taget'?
         #endregion ID
 
         #region First name + Last name

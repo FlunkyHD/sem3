@@ -11,7 +11,7 @@ namespace Eksamen.UI
 {
     public class StregsystemCLI : IStregsystemUI
     {
-        private IStregsystem IS;
+        private readonly IStregsystem IS;
         private bool _running = true;
         public event StregsystemEvent CommandEntered;
         public StregsystemCLI(IStregsystem s)
@@ -74,7 +74,7 @@ namespace Eksamen.UI
 
         public void DisplayInsufficientCash(User user, Product product, int count)
         {
-            Console.WriteLine($"User: {user.Username} (balance: {user.Balance}) did not have sufficient funds to purchase:{count}x {product.Name}");
+            Console.WriteLine($"User: {user.Username} (balance: {user.Balance}) did not have sufficient funds to purchase: {count}x {product.Name} ({count * product.Price} DKK)");
         }
 
         public void DisplayGeneralError(string errorString)
@@ -109,17 +109,17 @@ namespace Eksamen.UI
             }
         }
 
-        public void HandleInput()
+        private void HandleInput()
         {
             string command = Console.ReadLine();
             Console.Clear();
             CommandEntered?.Invoke(command);
         }
 
-        public void WriteMenu()
+        private void WriteMenu()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~~ F-Klub Stregssytem ~~~~~~~~~~~~~~~~~~");
-            Console.WriteLine("{0,-7} {1,-35} {2,10}  |", "ID:", "Varenavn:", "Pris:");
+            Console.WriteLine("{0,-7} {1,-35} {2,10}  |", "ID:", "Product:", "Price:");
             foreach (Product isActiveProduct in IS.ActiveProducts)
             {
                 Console.WriteLine($"{isActiveProduct} DKK |");

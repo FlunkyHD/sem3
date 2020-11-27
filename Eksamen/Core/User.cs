@@ -41,7 +41,7 @@ namespace Eksamen.Core
         }
 
         private static int idCounter = 0; //To get unique id´s
-        private int _id = ++idCounter;
+        private readonly int _id = ++idCounter;
         public int ID { get; }
         private string _firstName;
 
@@ -145,7 +145,7 @@ namespace Eksamen.Core
         public override bool Equals(object? obj)
         {
             User equl;
-            if (obj is User)
+            if (obj != null && obj is User)
             {
                 equl = (User) obj;
             }
