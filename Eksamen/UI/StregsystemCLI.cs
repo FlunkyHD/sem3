@@ -95,11 +95,13 @@ namespace Eksamen.UI
 
         private void UserBalanceWarning(User user, decimal balance)
         {
+            Console.SetCursorPosition(0, 0);
             Console.WriteLine($"WARNING! User: {user.Username}'s balance is only: {balance} DKK");
         }
 
         public void Start()
         {
+           
             while (_running)
             {
                 WriteMenu();
@@ -110,16 +112,17 @@ namespace Eksamen.UI
         public void HandleInput()
         {
             string command = Console.ReadLine();
+            Console.Clear();
             CommandEntered?.Invoke(command);
         }
 
         public void WriteMenu()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~~ F-Klub Stregssytem ~~~~~~~~~~~~~~~~~~");
-            Console.WriteLine("{0,-7} {1,-35} {2,10}", "ID:", "Varenavn:", "Pris:");
+            Console.WriteLine("{0,-7} {1,-35} {2,10}  |", "ID:", "Varenavn:", "Pris:");
             foreach (Product isActiveProduct in IS.ActiveProducts)
             {
-                Console.WriteLine($"{isActiveProduct} DKK");
+                Console.WriteLine($"{isActiveProduct} DKK |");
             }
             Console.WriteLine("");
             Console.Write("Enter command: ");

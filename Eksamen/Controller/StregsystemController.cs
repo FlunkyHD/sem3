@@ -118,7 +118,7 @@ namespace Eksamen.Controller
 
         private void BuyProduct(User user, Product product)
         {
-            if (user.Balance < product.Price)
+            if (user.Balance < product.Price && !product.CanBeBoughtOnCredit)
             {
                 SUI.DisplayInsufficientCash(user, product, 1);
             }
@@ -131,7 +131,7 @@ namespace Eksamen.Controller
         private void MultiBuyProduct(User user, Product product, int count)
         {
             BuyTransaction bt = null;
-            if (user.Balance < (product.Price * count))
+            if (user.Balance < (product.Price * count) && !product.CanBeBoughtOnCredit)
             {
                 SUI.DisplayInsufficientCash(user, product, count);
             }

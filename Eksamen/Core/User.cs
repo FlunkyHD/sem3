@@ -154,7 +154,7 @@ namespace Eksamen.Core
                 return false;
             }
 
-            if (this.ID == equl.ID)
+            if (this.GetHashCode() == equl.GetHashCode())
             {
                 return true;
             }

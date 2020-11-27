@@ -61,9 +61,7 @@ namespace Eksamen.Core
 
         public Product GetProductByID(int id)
         {
-            Product product;
-
-            product = allProducts.Find(x => x.ID == id);
+            Product product = allProducts.Find(x => x.ID == id);
 
             if (product == null)
             {
@@ -148,7 +146,7 @@ namespace Eksamen.Core
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(transaction.ToString());
-            File.AppendAllText("log.txt", sb.ToString());
+            File.AppendAllText("..\\..\\..\\Data\\log.txt", sb.ToString());
         }
 
     }
