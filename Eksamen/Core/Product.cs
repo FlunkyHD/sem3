@@ -8,6 +8,7 @@ namespace Eksamen.Core
 {
     public class Product
     {
+        //Constructor for when reading a file line by line
         public Product(string line)
         {
             string[] split = line.Split(';');

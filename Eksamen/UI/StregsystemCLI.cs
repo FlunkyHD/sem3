@@ -13,6 +13,7 @@ namespace Eksamen.UI
     {
         private IStregsystem IS;
         private bool _running = true;
+        public event StregsystemEvent CommandEntered;
         public StregsystemCLI(IStregsystem s)
         {
             IS = s;
@@ -71,9 +72,9 @@ namespace Eksamen.UI
             _running = false;
         }
 
-        public void DisplayInsufficientCash(User user, Product product)
+        public void DisplayInsufficientCash(User user, Product product, int count)
         {
-            Console.WriteLine($"User: {user.Username} (balance: {user.Balance}) did not have sufficient funds to purchase: {product.Name}");
+            Console.WriteLine($"User: {user.Username} (balance: {user.Balance}) did not have sufficient funds to purchase:{count}x {product.Name}");
         }
 
         public void DisplayGeneralError(string errorString)
@@ -105,8 +106,6 @@ namespace Eksamen.UI
                 HandleInput();
             }
         }
-
-        public event StregsystemEvent CommandEntered;
 
         public void HandleInput()
         {

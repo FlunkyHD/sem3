@@ -14,9 +14,9 @@ namespace Eksamen.UI
         void DisplayAdminCommandNotFoundMessage(string adminCommand); 
         void DisplayUserBuysProduct(BuyTransaction transaction); 
         void DisplayUserBuysProduct(int count, BuyTransaction transaction);
-        void DisplayInserCashTransation(InsertCashTransaction transaction); //TILFØJET SELV
+        void DisplayInserCashTransation(InsertCashTransaction transaction);
         void Close(); 
-        void DisplayInsufficientCash(User user, Product product); 
+        void DisplayInsufficientCash(User user, Product product, int count); 
         void DisplayGeneralError(string errorString); 
         void Start(); 
         event StregsystemEvent CommandEntered;

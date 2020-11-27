@@ -9,10 +9,12 @@ namespace Eksamen.Core
 {
     public class User : IComparable<User>
     {
+        //Used locally in the comapre function
         private User()
         {
 
         }
+        //Used when reading the file
         public User(string line)
         {
             string[] split = line.Split(',');
@@ -23,7 +25,7 @@ namespace Eksamen.Core
             Balance = (Convert.ToDecimal(split[4])) / 100; //To DDK
             Email = Convert.ToString(split[5]);
 
-            if (ID > idCounter)
+            if (ID > idCounter) //If users later are craeted manually, to make sure there are no overlaps
             {
                 idCounter = ID;
             }
@@ -38,7 +40,7 @@ namespace Eksamen.Core
             Balance = balance;
         }
 
-        private static int idCounter = 0;
+        private static int idCounter = 0; //To get unique id´s
         private int _id = ++idCounter;
         public int ID { get; }
         private string _firstName;
@@ -83,7 +85,7 @@ namespace Eksamen.Core
             get { return _username; }
             set
             {
-                if (Regex.IsMatch(value, "^[a-z0-9_]+$"))
+                if (Regex.IsMatch(value, @"^[a-z0-9+_]+$"))
                 {
                     _username = value;
                 }
@@ -100,6 +102,10 @@ namespace Eksamen.Core
             get { return _email; }
             set
             {
+                if (!value.Contains('@'))
+                {
+                    throw new InvalidDataException($"Invalid email: {value}");
+                }
                 string[] split = value.Split('@');
                 if (Regex.IsMatch(split[0], @"^[a-zA-Z0-9+_\.-]") && Regex.IsMatch(split[1], @"^(?!\.|-)[a-zA-Z0-9.-]+[^.-]$") && split[1].Contains('.'))
                 {
@@ -138,7 +144,7 @@ namespace Eksamen.Core
 
         public override bool Equals(object? obj)
         {
-            User equl = new User();
+            User equl;
             if (obj is User)
             {
                 equl = (User) obj;
@@ -159,6 +165,7 @@ namespace Eksamen.Core
 
         }
 
+        //Needed because of the Equals method
         public override int GetHashCode()
         {
             return ID.GetHashCode();

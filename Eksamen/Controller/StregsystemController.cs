@@ -10,8 +10,8 @@ namespace Eksamen.Controller
 {
     public class StregsystemController
     {
-        private IStregsystem S;
-        private IStregsystemUI SUI;
+        private readonly IStregsystem S;
+        private readonly IStregsystemUI SUI;
         private Dictionary<string, Action<string[]>> _adminCommands = new Dictionary<string, Action<string[]>>();
 
         public StregsystemController(IStregsystemUI sui, IStregsystem s)
@@ -19,43 +19,10 @@ namespace Eksamen.Controller
             S = s;
             SUI = sui;
             SUI.CommandEntered += Controller;
-            _adminCommands.Add(":quit", (string[] command) =>
-            {
-                TestArgumentNumber(command, 1); 
-                SUI.Close();
-            });
-            _adminCommands.Add(":q", (string[] command) => 
-                { TestArgumentNumber(command, 1); 
-                    SUI.Close();
-                });
-            _adminCommands.Add(":activate", (string[] command) =>
-            {
-                TestArgumentNumber(command, 2);
-                S.GetProductByID(Convert.ToInt32(command[1])).Active = true;
-            });
-            _adminCommands.Add(":deactivate", (string[] command) =>
-            {
-                TestArgumentNumber(command, 2);
-                S.GetProductByID(Convert.ToInt32(command[1])).Active = false;
-            });
-            _adminCommands.Add(":crediton", (string[] command) =>
-            {
-                TestArgumentNumber(command, 2);
-                S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = true;
-            });
-            _adminCommands.Add(":creditoff", (string[] command) =>
-            {
-                TestArgumentNumber(command, 2);
-                S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = false;
-            });
-            _adminCommands.Add(":addcredits", (string[] command) =>
-            {
-                TestArgumentNumber(command, 3);
-                SUI.DisplayInserCashTransation(S.AddCreditsToAccount(s.GetUserByUsername(command[1]),
-                        Convert.ToInt32(command[2])));
-            });
+            AddAdminCommands();
         }
 
+        //Handle most of the throws
         private void Controller(string command)
         {
             try
@@ -73,7 +40,6 @@ namespace Eksamen.Controller
             catch (InsufficientCreditsException e)
             {
                 SUI.DisplayGeneralError(e.Message);
-                //SUI.DisplayInsufficientCash();
             }
             catch (NotActiveProductException e)
             {
@@ -91,36 +57,31 @@ namespace Eksamen.Controller
             {
                 SUI.DisplayTooManyArgumentsError(e.Message);
             }
-
+            catch (Exception e)
+            {
+                SUI.DisplayGeneralError(e.Message);
+            }
         }
 
         private void ParseCommand(string command)
         {
-            User user;
-            Product product;
+            string[] split = command.Split(' ');
             if (command.StartsWith(":"))
             {
-                string[] adminSplit = command.Split(' ');
 
-                foreach (KeyValuePair<string, Action<string[]>> commandAction in _adminCommands)
+                try
                 {
-                    if (adminSplit[0] == commandAction.Key)
-                    {
-                        commandAction.Value?.Invoke((adminSplit));
-                        break;
-                    }
+                    _adminCommands[split[0]].Invoke(split);
+                }
+                catch (KeyNotFoundException)
 
-                    if (commandAction.Equals(_adminCommands.Last()))
-                    {
-                        SUI.DisplayAdminCommandNotFoundMessage($"{adminSplit[0]}");
-                    }
-
+                {
+                    SUI.DisplayAdminCommandNotFoundMessage($"{split[0]}");
                 }
 
             }
             else
             {
-                string[] split = command.Split(' ');
                 if (split.Length == 3) //QUICKBUY
                 {
                     MultiBuyProduct(S.GetUserByUsername(split[0]), S.GetProductByID(Convert.ToInt32(split[1])), Convert.ToInt32(split[2]));
@@ -129,7 +90,7 @@ namespace Eksamen.Controller
                 {
                     BuyProduct(S.GetUserByUsername(split[0]), S.GetProductByID(Convert.ToInt32(split[1])));
                 }
-                else if (split.Length == 1)
+                else if (split.Length == 1) //User info
                 {
                     TypedInUsername(S.GetUserByUsername(split[0]));
                 }
@@ -157,22 +118,72 @@ namespace Eksamen.Controller
 
         private void BuyProduct(User user, Product product)
         {
-            SUI.DisplayUserBuysProduct(S.BuyProduct(user, product));
+            if (user.Balance < product.Price)
+            {
+                SUI.DisplayInsufficientCash(user, product, 1);
+            }
+            else
+            {
+                SUI.DisplayUserBuysProduct(S.BuyProduct(user, product));
+            }
         }
 
         private void MultiBuyProduct(User user, Product product, int count)
         {
             BuyTransaction bt = null;
-            if (user.Balance - (product.Price * count) < 0)
+            if (user.Balance < (product.Price * count))
             {
-                throw new InsufficientCreditsException($"User: {user} did not have enough balance to buy {count}x {product.Name}");
+                SUI.DisplayInsufficientCash(user, product, count);
             }
-            for (int i = 0; i < count; i++)
+            else
             {
-                bt = S.BuyProduct(user, product);
+                for (int i = 0; i < count; i++)
+                {
+                    bt = S.BuyProduct(user, product);
+                }
+                SUI.DisplayUserBuysProduct(count, bt);
             }
-            SUI.DisplayUserBuysProduct(count, bt);
+            
+        }
 
+        private void AddAdminCommands()
+        {
+            _adminCommands.Add(":quit", (string[] command) =>
+            {
+                TestArgumentNumber(command, 1);
+                SUI.Close();
+            });
+            _adminCommands.Add(":q", (string[] command) =>
+            {
+                TestArgumentNumber(command, 1);
+                SUI.Close();
+            });
+            _adminCommands.Add(":activate", (string[] command) =>
+            {
+                TestArgumentNumber(command, 2);
+                S.GetProductByID(Convert.ToInt32(command[1])).Active = true;
+            });
+            _adminCommands.Add(":deactivate", (string[] command) =>
+            {
+                TestArgumentNumber(command, 2);
+                S.GetProductByID(Convert.ToInt32(command[1])).Active = false;
+            });
+            _adminCommands.Add(":crediton", (string[] command) =>
+            {
+                TestArgumentNumber(command, 2);
+                S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = true;
+            });
+            _adminCommands.Add(":creditoff", (string[] command) =>
+            {
+                TestArgumentNumber(command, 2);
+                S.GetProductByID(Convert.ToInt32(command[1])).CanBeBoughtOnCredit = false;
+            });
+            _adminCommands.Add(":addcredits", (string[] command) =>
+            {
+                TestArgumentNumber(command, 3);
+                SUI.DisplayInserCashTransation(S.AddCreditsToAccount(S.GetUserByUsername(command[1]),
+                    Convert.ToInt32(command[2])));
+            });
         }
 
     }

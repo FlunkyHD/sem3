@@ -14,6 +14,8 @@ namespace Eksamen.Core
         private List<Product> allProducts;
         private List<User> allUsers;
         private List<Transaction> allTransactions = new List<Transaction>();
+        public event UserBalanceNotification UserBalanceWarning;
+        public event FileReadWarning FileReadError;
 
         public IEnumerable<Product> ActiveProducts
         {
@@ -45,12 +47,11 @@ namespace Eksamen.Core
             return transaction;
         }
 
-        public event UserBalanceNotification UserBalanceWarning; //TODO RYK
-
+        //Helper function for executing both kinds of transactions, while adding them to the log file
         private void ExecuteTransaction(Transaction transaction)
         {
             transaction.Execute();
-            if (transaction.User.Balance <= 5)
+            if (transaction.User.Balance <= 50)
             {
                 UserBalanceWarning?.Invoke(transaction.User, transaction.User.Balance);
             }
@@ -73,6 +74,7 @@ namespace Eksamen.Core
 
         }
 
+        //Get the last 10 transaction for a user, or less if they do not have 10
         public IEnumerable<Transaction> GetTransactions(User user, int count)
         {
             List<Transaction> transactions = allTransactions.FindAll(x => x.User == user);
@@ -85,17 +87,23 @@ namespace Eksamen.Core
         }
 
 
-        public User GetUsers(Func<User, bool> predicate)
+        public IEnumerable<User> GetUsers(Func<User, bool> predicate)
         {
+            List<User> list = new List<User>();
             foreach (User user in allUsers)
             {
                 if (predicate(user))
                 {
-                    return user;
+                    list.Add(user);
                 }
             }
 
-            throw new NonExistingUserException($"A user that matches this predicate: {predicate} could not be found");
+            if (list.Count < 1)
+            {
+                throw new NonExistingUserException($"A user that matches this predicate: {predicate} could not be found");
+            }
+
+            return list;
         }
 
         public User GetUserByUsername(string username)
@@ -112,7 +120,6 @@ namespace Eksamen.Core
         }
 
 
-        public event FileReadWarning FileReadError;
         public void ReadFiles()
         {
             allProducts = readFile("..\\..\\..\\Data\\products.csv", (s => new Product(s)));
@@ -120,6 +127,7 @@ namespace Eksamen.Core
         }
 
 
+        //Try to read the file, while creating users/products and returning a list containing them all
         private List<T> readFile<T>(string path, Func<string,T> func)
         {
             List<T> liste = new List<T>();
@@ -135,6 +143,7 @@ namespace Eksamen.Core
             return liste;
         }
 
+        //Writes to log.txt inside where the program is executed
         private void writeToLogFile(Transaction transaction)
         {
             StringBuilder sb = new StringBuilder();
