@@ -169,3 +169,4 @@ Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2
 Nancy Davolio (ndavo@sample.stregsystem.dk) bought Monster for 12 DKK at 27-11-2020 19:06:00 with ID:33
 Morten Koks (motor@aau.student.dk) bought Dåseøl (Guinness & Kilkenny) for 16,5 DKK at 27-11-2020 19:06:42 with ID:34
 Morten Koks (motor@aau.student.dk) bought Dåseøl (Guinness & Kilkenny) for 16,5 DKK at 27-11-2020 19:06:42 with ID:35
+Inserting 1005 DKK into Morten Koks (motor@aau.student.dk) at 27-11-2020 19:29:22 with ID:1

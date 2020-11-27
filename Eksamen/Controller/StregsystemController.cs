@@ -83,7 +83,7 @@ namespace Eksamen.Controller
             }
             else
             {
-                if (split.Length == 3) //QUICKBUY
+                if (split.Length == 3) //Multi BUY
                 {
                     MultiBuyProduct(S.GetUserByUsername(split[0]), S.GetProductByID(Convert.ToInt32(split[1])), Convert.ToInt32(split[2]));
                 }
@@ -119,6 +119,10 @@ namespace Eksamen.Controller
 
         private void BuyProduct(User user, Product product)
         {
+            if (!product.Active)
+            {
+                throw new NotActiveProductException($"This product is not active: {product.Name}");
+            }
             if (user.Balance < product.Price && !product.CanBeBoughtOnCredit)
             {
                 SUI.DisplayInsufficientCash(user, product, 1);
@@ -131,6 +135,10 @@ namespace Eksamen.Controller
 
         private void MultiBuyProduct(User user, Product product, int count)
         {
+            if (!product.Active)
+            {
+                throw new NotActiveProductException($"This product is not active: {product.Name}");
+            }
             if (count <= 0)
             {
                 throw new InvalidDataException($"Amount has to be positive! typed: ({count})");

@@ -159,7 +159,6 @@ namespace Tests
             Assert.Throws<InvalidDataException>(() => new User("username", "last name", "username", eMail, 500));
         }
         #endregion Valid EMail
-        //TODO evt test .CompareTo() og .Equals()
     }
 
 }
