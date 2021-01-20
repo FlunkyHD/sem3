@@ -6,6 +6,9 @@ namespace Inden_Eksamen_koks
     {
         static void Main(string[] args)
         {
+
+            //Public og private = Access modifier
+
             City Herning = new City("Herning", 65000, 7400);
 
             Console.WriteLine(Herning);

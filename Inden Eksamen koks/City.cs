@@ -26,6 +26,8 @@ namespace Inden_Eksamen_koks
 
         public List<Person> Citizens = new List<Person>();
 
+        public event EventHandler diller;
+
         public int Population { get; set; }
 
         public int PostNumber { get; set; }
