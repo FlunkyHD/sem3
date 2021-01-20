@@ -23,5 +23,10 @@ namespace Inden_Eksamen_koks
         {
             Console.WriteLine("Farvel!");
         }
+
+        public override string ToString()
+        {
+            return $"{Name}, {Age}";
+        }
     }
 }

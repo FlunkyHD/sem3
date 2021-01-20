@@ -14,7 +14,23 @@ namespace Inden_Eksamen_koks
             Morten.SayHello();
             Morten.SayGoodbye();
 
-            Herning.OnBorn += Herning.BabyBornInCity();
+            Morten.ChildBorn += Herning.BabyBornInCity;
+            Morten.PersonDied += Herning.PersonDiedInCity;
+
+            Morten.PopChildOut("Apollo");
+
+            Console.WriteLine(Herning.Citizens[0]);
+
+            Console.WriteLine(Herning);
+
+            Morten.PersonDies();
+
+            Console.WriteLine(Herning);
+
+            Generic<string> diller = new Generic<string>();
+
+            Console.WriteLine(diller.ReturnLargest("Diller", "Coomer123"));
+
         }
     }
 }

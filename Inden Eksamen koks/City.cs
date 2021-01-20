@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Inden_Eksamen_koks
 {
-    public class City
+    public class City : ICity
     {
         //Constructor
         public City(string name, int population, int postNumber)
@@ -12,6 +12,7 @@ namespace Inden_Eksamen_koks
             Name = name;
             Population = population;
             PostNumber = postNumber;
+            
         }
 
         //Backing field
@@ -23,6 +24,8 @@ namespace Inden_Eksamen_koks
             set { if (value != null) name = value;}
         }
 
+        public List<Person> Citizens = new List<Person>();
+
         public int Population { get; set; }
 
         public int PostNumber { get; set; }
@@ -33,17 +36,30 @@ namespace Inden_Eksamen_koks
             return $"{Name} {PostNumber} ({Population}) Base: " + base.ToString();
         }
 
+        public void DisplayCitizens()
+        {
+            foreach (Person citizen in Citizens)
+            {
+                Console.WriteLine(citizen);
+            }
+        }
+
         public virtual double PopulationInOneYear()
         {
             return Population * 1.05;
         }
 
-        public virtual void BabyBornInCity()
+        public virtual void BabyBornInCity(Person child)
         {
+            Citizens.Add(child);
             Population++;
         }
 
-        public event BabyBorn OnBorn;
+        public virtual void PersonDiedInCity(Object? objec, DiedEventArgs e)
+        {
+            Console.WriteLine($"From: {objec}, died at {e.TimeOfDeath}");
+            Population--;
+        }
 
     }
 }

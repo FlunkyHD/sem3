@@ -15,6 +15,21 @@ namespace Inden_Eksamen_koks
 
         public City BorI { get; set; }
 
+        public event BabyBornEvent ChildBorn;
+        public EventHandler<DiedEventArgs> PersonDied;
+
+        public Person PopChildOut(string name)
+        {
+            Person Child = new Person(name, 0, BorI);
+            ChildBorn?.Invoke(Child);
+            return Child;
+        }
+
+        public void PersonDies()
+        {
+            PersonDied?.Invoke(this, new DiedEventArgs());
+        }
+
         public override void SayHello()
         {
             Console.WriteLine("Davs manner!");
@@ -26,5 +41,18 @@ namespace Inden_Eksamen_koks
             base.SayGoodbye();
             Console.WriteLine("med dig");
         }
+
+
     }
+
+    public class DiedEventArgs : EventArgs
+    {
+        public DiedEventArgs()
+        {
+            TimeOfDeath = DateTime.Now;
+        }
+
+        public DateTime TimeOfDeath;
+    }
+
 }
