@@ -9,21 +9,13 @@ namespace Eksamen.Core
     {
         public BuyTransaction(User user, decimal amount, Product productBought) : base(user, amount)
         {
-            _productBought = productBought;
-            _amountAtPurchase = amount;
+            ProductBought = productBought;
+            AmountAtPurchase = amount;
         }
 
-        private Product _productBought;
-        public Product ProductBought
-        {
-            get { return _productBought; }
-        }
+        public Product ProductBought { get; }
 
-        private decimal _amountAtPurchase;
-        public decimal AmountAtPurchase
-        {
-            get { return _amountAtPurchase; }
-        }
+        public decimal AmountAtPurchase { get; }
 
         public override string ToString()
         {
@@ -32,15 +24,14 @@ namespace Eksamen.Core
 
         public override void Execute()
         {
-            if ((User.Balance - AmountAtPurchase) < 0 && !ProductBought.CanBeBoughtOnCredit)
-            {
-                //throw new InsufficientCreditsException(User, ProductBought);
-                throw new InsufficientCreditsException($"User: {User.Username} does not have enough balance to buy: {ProductBought.Name}");
-            }
-
             if (!ProductBought.Active)
             {
                 throw new NotActiveProductException($"This product is not available!");
+            }
+
+            if ((User.Balance - AmountAtPurchase) < 0 && !ProductBought.CanBeBoughtOnCredit)
+            {
+                throw new InsufficientCreditsException($"User: {User.Username} does not have enough balance to buy: {ProductBought.Name}");
             }
 
             User.Balance -= AmountAtPurchase;

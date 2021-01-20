@@ -11,8 +11,9 @@ namespace Eksamen.UI
 {
     public class StregsystemCLI : IStregsystemUI
     {
-        private IStregsystem IS;
+        private readonly IStregsystem IS;
         private bool _running = true;
+        public event StregsystemEvent CommandEntered;
         public StregsystemCLI(IStregsystem s)
         {
             IS = s;
@@ -71,9 +72,9 @@ namespace Eksamen.UI
             _running = false;
         }
 
-        public void DisplayInsufficientCash(User user, Product product)
+        public void DisplayInsufficientCash(User user, Product product, int count)
         {
-            Console.WriteLine($"User: {user.Username} (balance: {user.Balance}) did not have sufficient funds to purchase: {product.Name}");
+            Console.WriteLine($"User: {user.Username} (balance: {user.Balance}) did not have sufficient funds to purchase: {count}x {product.Name} ({count * product.Price} DKK)");
         }
 
         public void DisplayGeneralError(string errorString)
@@ -94,40 +95,43 @@ namespace Eksamen.UI
 
         private void UserBalanceWarning(User user, decimal balance)
         {
+            Console.SetCursorPosition(0, 0);
             Console.WriteLine($"WARNING! User: {user.Username}'s balance is only: {balance} DKK");
         }
 
         public void Start()
         {
-
+           
             while (_running)
             {
                 WriteMenu();
                 HandleInput();
             }
-
         }
 
-        public event StregsystemEvent CommandEntered;
-
-        public void HandleInput()
+        private void HandleInput()
         {
             string command = Console.ReadLine();
+            Console.Clear();
             CommandEntered?.Invoke(command);
         }
 
-        public void WriteMenu()
+        private void WriteMenu()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~~ F-Klub Stregssytem ~~~~~~~~~~~~~~~~~~");
-            Console.WriteLine("{0,-7} {1,-35} {2,10}", "ID:", "Varenavn:", "Pris:");
+            Console.WriteLine("{0,-7} {1,-35} {2,10}  |", "ID:", "Product:", "Price:");
             foreach (Product isActiveProduct in IS.ActiveProducts)
             {
-                Console.WriteLine($"{isActiveProduct} DKK");
+                Console.WriteLine($"{isActiveProduct} DKK |");
             }
             Console.WriteLine("");
             Console.Write("Enter command: ");
 
         }
 
+        public void DisplayInserCashTransation(InsertCashTransaction transaction)
+        {
+            Console.WriteLine(transaction);
+        }
     }
 }

@@ -12,12 +12,11 @@ namespace Eksamen.Core
             SeasonStartDate = startDate;
         }
 
-        private DateTime _seasonStartDate;
         public DateTime SeasonStartDate { get; set; }
 
-        private DateTime _seasonEndDate;
         public DateTime SeasonEndDate { get; set; }
 
+        //Can be used to check if the product should be activated
         public bool IsSeasonActive()
         {
             if (SeasonStartDate.CompareTo(DateTime.Now) < 0 && SeasonEndDate.CompareTo(DateTime.Now) > 0)

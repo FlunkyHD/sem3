@@ -14,8 +14,9 @@ namespace Eksamen.Core
             TransactionTime = DateTime.Now;
         }
 
+        //Static to make sure each transaction gets a unique id
         private static int idCounter = 0;
-        private int _id = ++idCounter;
+        private readonly int _id = ++idCounter;
         public int ID
         {
             get { return _id; }
@@ -39,10 +40,8 @@ namespace Eksamen.Core
             }
         }
 
-        private DateTime _transactionTime;
         public DateTime TransactionTime { get; }
 
-        private decimal _amount;
         public decimal Amount { get; set; }
 
         public override string ToString()
@@ -50,6 +49,7 @@ namespace Eksamen.Core
             return $"{ID} by {User} for {Amount} at {TransactionTime}";
         }
 
+        //Abstract to make sure "children" implement it
         public abstract void Execute();
     }
 }

@@ -13,12 +13,9 @@ namespace Eksamen.Core
     {
         private List<Product> allProducts;
         private List<User> allUsers;
-        private List<Transaction> allTransactions = new List<Transaction>();
-
-        public Stregsystem()
-        {
-            
-        }
+        private readonly List<Transaction> allTransactions = new List<Transaction>();
+        public event UserBalanceNotification UserBalanceWarning;
+        public event FileReadWarning FileReadError;
 
         public IEnumerable<Product> ActiveProducts
         {
@@ -50,25 +47,32 @@ namespace Eksamen.Core
             return transaction;
         }
 
-        public event UserBalanceNotification UserBalanceWarning; //TODO RYK
-
+        //Helper function for executing both kinds of transactions, while adding them to the log file
         private void ExecuteTransaction(Transaction transaction)
         {
             transaction.Execute();
-            if (transaction.User.Balance <= 5)
+            if (transaction.User.Balance <= 50)
             {
                 UserBalanceWarning?.Invoke(transaction.User, transaction.User.Balance);
             }
-            writeToLogFile(transaction);
+            WriteToLogFile(transaction);
             allTransactions.Add(transaction);
         }
 
         public Product GetProductByID(int id)
         {
-            return allProducts.Find(x => x.ID == id);
+            Product product = allProducts.Find(x => x.ID == id);
+
+            if (product == null)
+            {
+                throw new NonExistingProductException($"ID: {id}");
+            }
+
+            return product;
 
         }
 
+        //Get the last 10 transaction for a user, or less if they do not have 10
         public IEnumerable<Transaction> GetTransactions(User user, int count)
         {
             List<Transaction> transactions = allTransactions.FindAll(x => x.User == user);
@@ -81,17 +85,23 @@ namespace Eksamen.Core
         }
 
 
-        public User GetUsers(Func<User, bool> predicate) //TODO, tror det virker
+        public IEnumerable<User> GetUsers(Func<User, bool> predicate)
         {
+            List<User> list = new List<User>();
             foreach (User user in allUsers)
             {
                 if (predicate(user))
                 {
-                    return user;
+                    list.Add(user);
                 }
             }
 
-            throw new NonExistingUserException($"A user that matches this predicate: {predicate} could not be found");
+            if (list.Count < 1)
+            {
+                throw new NonExistingUserException($"A user that matches this predicate: {predicate} could not be found");
+            }
+
+            return list;
         }
 
         public User GetUserByUsername(string username)
@@ -104,19 +114,19 @@ namespace Eksamen.Core
                 }
             }
 
-            throw new NonExistingUserException($"A user with this username: {username} could not be found");
+            throw new NonExistingUserException($"{username}");
         }
 
 
-        public event FileReadWarning FileReadError;
         public void ReadFiles()
         {
-            allProducts = readFile("..\\..\\..\\Data\\products.csv", (s => new Product(s)));
-            allUsers = readFile("..\\..\\..\\Data\\users.csv", (s => new User(s)));
+            allProducts = ReadFile("..\\..\\..\\Data\\products.csv", (s => new Product(s)));
+            allUsers = ReadFile("..\\..\\..\\Data\\users.csv", (s => new User(s)));
         }
 
 
-        private List<T> readFile<T>(string path, Func<string,T> func)
+        //Try to read the file, while creating users/products and returning a list containing them all
+        private List<T> ReadFile<T>(string path, Func<string,T> func)
         {
             List<T> liste = new List<T>();
             try
@@ -131,23 +141,12 @@ namespace Eksamen.Core
             return liste;
         }
 
-        //TODO NOK FJERN DET HER
-        //private List<Product> readProductFile()
-        //{
-        //    return File.ReadLines("..\\..\\..\\Data\\products.csv").Skip(1).Select(line => new Product(line)).ToList();
-        //}
-
-        //private List<User> readUserFile()
-        //{
-        //    return File.ReadLines("..\\..\\..\\Data\\users.csv").Skip(1).Select(line => new User(line)).ToList();
-        //}
-
-        private void writeToLogFile(Transaction transaction)
+        //Writes to log.txt inside where the program is executed
+        private void WriteToLogFile(Transaction transaction)
         {
             StringBuilder sb = new StringBuilder();
-
             sb.AppendLine(transaction.ToString());
-            File.AppendAllText("log.txt", sb.ToString());
+            File.AppendAllText("..\\..\\..\\Data\\log.txt", sb.ToString());
         }
 
     }

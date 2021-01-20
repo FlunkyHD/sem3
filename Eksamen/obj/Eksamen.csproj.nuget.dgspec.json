@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Eksamen\\Eksamen.csproj": {}
+    "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Eksamen\\Eksamen.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Eksamen\\Eksamen.csproj": {
+    "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Eksamen\\Eksamen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Eksamen\\Eksamen.csproj",
+        "projectUniqueName": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Eksamen\\Eksamen.csproj",
         "projectName": "Eksamen",
-        "projectPath": "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Eksamen\\Eksamen.csproj",
-        "packagesPath": "C:\\Users\\Morten Jørgensen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Morten Jørgensen\\Desktop\\Uni\\3. Semester\\sem3\\Eksamen\\obj\\",
+        "projectPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Eksamen\\Eksamen.csproj",
+        "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Win10\\Desktop\\3. Semester\\OOP\\sem3\\Eksamen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Morten Jørgensen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,20 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.8.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.17.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
