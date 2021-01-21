@@ -27,6 +27,7 @@ namespace Inden_Eksamen_koks
         public List<Person> Citizens = new List<Person>();
 
         public event EventHandler diller;
+        public event Action hej;
 
         public int Population { get; set; }
 
@@ -61,6 +62,11 @@ namespace Inden_Eksamen_koks
         {
             Console.WriteLine($"From: {objec}, died at {e.TimeOfDeath}");
             Population--;
+        }
+
+        public void test()
+        {
+            Console.WriteLine("THE VIRKER!!!");
         }
 
     }

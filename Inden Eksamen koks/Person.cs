@@ -16,12 +16,16 @@ namespace Inden_Eksamen_koks
         public City BorI { get; set; }
 
         public event BabyBornEvent ChildBorn;
+        public event Action ChildBBorn;
+        public Action HEJJ;
         public EventHandler<DiedEventArgs> PersonDied;
 
         public Person PopChildOut(string name)
         {
             Person Child = new Person(name, 0, BorI);
             ChildBorn?.Invoke(Child);
+            ChildBBorn?.Invoke();
+            HEJJ?.Invoke();
             return Child;
         }
 
